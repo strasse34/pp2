@@ -1,0 +1,797 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+body {
+    font-family: calibri;
+    font-weight: 300;
+    color: #454545;     
+}
+
+/* navigation */
+header {
+    display: flex;
+    flex-direction: row;
+}
+#menu {
+    font-size: 110%;
+    letter-spacing: 2px;
+    margin: 10px 0 10px;
+    
+}
+#menu ul {
+    font-family: sans-serif;
+    font-weight: 400;
+    color: #7B96C2ff;
+    list-style: none;    
+}
+
+#menu li {
+    display: inline-block;
+    margin-right: 10px;
+    
+}
+#menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+#menu a:hover {
+    background-color: #ddd;
+}
+
+/* login */
+#login {
+    flex-grow: 1;
+    margin: 10px 0 10px;
+}
+#login select {
+    float: right;
+    padding: 10px;
+    font-size: 600;
+    border: solid 1px #7B96C2ff;
+    text-align: center;
+    color: #454545; 
+    margin-right: 10px;     
+    
+}
+
+.button {
+    float: right;
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 110%;
+    color: #7B96C2ff;
+    list-style: none;
+    margin: 0 5px;
+    padding: 10px;    
+}
+
+#login a {
+    text-decoration: none;  
+    
+}
+
+#login a:hover {
+    color: #7B96C2ff;    
+}
+
+/* media queries for menu and login */
+@media screen and (max-width:720px) {
+    
+    header {
+        display: grid;
+    }
+    #menu li {        
+        display: grid;
+        justify-content: center;
+        clear: both;
+    }
+    #login {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        
+    }
+    #login select {       
+        float: none;
+        width: 50%; 
+        margin-right: 0;      
+    }
+    
+    .button {        
+        display: flex;      
+        text-align: center;
+        width: 50%;       
+        border: solid 1px #7B96C2ff;
+        background-color: #7B96C2ff;        
+        margin-top: 5px;
+        margin-bottom: 5px; 
+             
+    }  
+}
+
+
+
+
+/* header picture and logo */
+#burka {        
+    height: 750px;
+    background: url('../images/burqa-mit-bread-3.jpg') no-repeat center center;
+    background-size: cover;
+}
+#banner {    
+    position: relative;    
+    overflow: auto;    
+}
+#banner img {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    width: 18%;
+}
+
+/* text on the header picture */
+#burka-text {
+    position: relative;
+    font-family: calibri;
+    color: #d4804e;
+    width: 50%;
+    height: 30%;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 350px;
+    left: 60px;
+    letter-spacing: 2px;
+    padding: 20px 20px;  
+    
+}
+#burka-text h1 {
+    font-size: 240%;
+    margin-bottom: 20px;
+}
+#burka-text h5 {
+    font-size: 120%;
+}
+
+/* media setting for textbox on the background picture from 1260 */
+@media screen and (max-width: 1260px) {
+    #burka-text {
+        height: auto;
+    }
+    #banner img {
+        width: 25%;
+    }
+    
+}
+@media screen and (max-width: 786px) {
+    #burka-text {
+        font-size: 2.5vw;
+    }
+}
+
+/* statistics section*/
+#statistics {
+    width: 90%;    
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;    
+    column-count: 3;
+    column-gap: 100px;             
+}
+#statistics h1 {
+    
+    color: red;
+    font-size: 300%;
+    font-weight: 700;
+    vertical-align: bottom;
+    text-align: center;
+}
+#statistics h3 {
+    
+    color: green;
+    font-size: 150%;
+    font-weight: bold;
+    vertical-align: top;
+    text-align: center;
+}
+
+/* media query for statistics from 1100*/
+@media screen and (max-width: 1100px) {
+    #statistics {
+        display: grid;
+        height: auto;
+        
+    }
+    #statistics div {
+        padding-bottom: 50px;
+        
+    }
+}
+
+    /* media query for statistics from 360*/
+@media screen and (max-width: 360px) {
+    #statistics h1 {       
+        font-size: 10vw;        
+    }
+    #statistics h3 {       
+        font-size: 5vw;
+        
+    }
+}
+
+/* talib and girl */
+#talib {
+    width: 100%;
+    height: 460px;
+    background-color: #454545;      
+    position: relative;     
+}
+#talib div {
+    max-width: 30%;
+    max-height: 90%;
+    color: azure;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri;
+    font-size: 130%;
+    font-weight: 400;
+    line-height: 25px;
+    padding: 10px 0 25px 50px;
+    letter-spacing: 2px;   
+    
+}
+#talib img {   
+    position: absolute;
+    max-width: 60%; 
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    border: solid 20px #454545;
+      
+}
+#talib h2 {
+    color: aqua;
+    font-size: 150%;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+/* media query for Talib section from 1300 */
+@media screen and (max-width: 1200px){
+    #talib {
+        height: auto;
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+              
+    }
+    #talib div {
+        max-width: 70%;
+        display: block;
+        order: 2;
+        padding: 0 10px 40px 10px;
+       }
+    #talib img {
+        position: relative;
+        max-width: 85%;     
+        
+    }
+}
+  
+/* video */
+#video {    
+    width: 100%;
+    height:max-content; 
+    background-color: black;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;    
+}
+
+#video iframe {
+    width: 1200px;
+    height: 700px;
+}
+
+@media screen and (max-width: 1200px){
+
+    #video iframe {
+        width: 800px;
+        height: 450px;
+    }
+    }
+
+@media screen and (max-width: 800px){
+
+#video iframe {
+    width: 600px;
+    height: 450px;
+}
+}
+
+/* starting section */
+#starting {
+    width: 100%;
+    height: 550px;
+    background-color: #e2dac3;
+    position: relative;   
+    
+}
+#starting h2 {
+    color: #3d5777;
+    font-size: 250%;
+    font-weight: bold;
+    padding: 50px;
+}
+#starting table {
+    width: 70%;    
+    color: #3d5777;
+    margin-left: 150px;
+    font-size: 150%;
+    font-weight: 700;
+    
+}
+#starting td {
+    padding: 10px;
+    padding-bottom: 30px;
+    vertical-align: center;
+}
+#starting .starting-td {
+    color: #F5174e;
+    vertical-align:bottom;
+    white-space: nowrap;
+   
+    
+}
+#starting .starting-td a {
+    text-decoration: none;
+    color: #F5174e;
+}
+#starting .starting-td a:hover {
+    text-shadow: 0 0 10px rgb(24, 22, 22);
+}
+
+/* media query for statistics from 1120 screen size */
+@media screen and (max-width: 1120px){
+    #starting {
+        width: 100%;
+        height: auto;
+        
+    }
+    #starting table {
+        display: block;
+        border-collapse: collapse;
+        margin: 0 auto;
+    }
+    #starting tr {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 30px;
+    }
+    #starting td {
+        display: block;
+    }
+    #starting .Starting-td {
+        text-align: right;
+    }
+}
+
+/* contact */
+
+#location {
+    width: 100%;
+    position: relative;
+    padding-bottom: 25.25%;
+    height: 0;    
+    
+}
+
+.map {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+
+footer {
+    width: 100%;
+    height: 300px;
+    background-color: #55a4b4;   
+    font-size: large;
+    font-weight: 700;
+    column-count: 3;
+    column-gap: 10px;
+}
+footer div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+footer table a {
+    text-decoration: none;
+    color: black;    
+}
+
+footer a:hover {
+    color: rgb(236, 193, 52);
+}
+
+footer a:hover i {
+    color: rgb(236, 193, 52);
+}
+
+footer i {
+    padding: 20px;
+    color: black;
+}
+footer li {
+    list-style: none;
+    float: left;
+    padding: 15px;
+}
+  
+footer div:nth-child(1) img {
+    width: 35%;
+    height: auto;
+       
+}
+footer table td:nth-child(1) {
+    text-align: center;
+}
+footer div p i {
+    padding: 5px;
+}
+ 
+/* media query for contact from 890 */
+@media screen and (max-width: 890px) {
+    footer {
+        height: auto;
+        column-count: 1;
+        align-items: center;       
+    }
+    footer div {
+        padding: 25px 0;       
+    }
+}
+
+/* apply-form.html */
+/* banner and title */
+#apply-banner {
+    width: 100%;
+    position: relative;
+    background: url('../images/free-from-prison.jpg') no-repeat center center;
+    background-size: cover;
+    background-position: top 200px;    
+    height: 400px;
+    display: flex;    
+    align-items: flex-end;
+}
+#apply-banner h1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;    
+    background-color: rgb(224, 219, 219, .7);
+    color: #96052e;
+    font-size: 300%;
+    font-weight: bold;
+    text-align: center;    
+}
+
+/* form */
+#form-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    
+}
+form {    
+    display: inline-block;  
+    width: 50%;
+    height: auto;    
+    font-size: 130%;  
+      
+}
+form div {
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+form label {    
+    width: 30%;
+    padding: 10px 0; 
+    font-weight: 500;
+    color: #454545;  
+}
+form select {
+    float: right;
+    border: solid 1px gray;
+    width: 61%;
+    height: 30px;
+    font-size: large;
+    padding: 2px;
+    color: gray;   
+}
+form input {   
+    float: right;
+    border: solid 1px gray;
+    width: 60%;
+    height: 25px;
+    font-size: large;
+    padding: 2px;
+    color: gray;         
+}
+form textarea {
+    width: 90%;
+    height: 300px;
+    border: solid 1px gray;
+    border-radius: 4px;
+    resize: none;
+    font-size: large;
+    font-family: calibri;
+    padding: 20px;
+}
+form table td {
+    width: fit-content;
+    padding: 10px;
+}
+form hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #454545;
+}
+form button {
+    background-color: rgb(196, 194, 194);
+    cursor: pointer;
+    color: #454545;
+    font-size: large;
+    padding: 10px;
+    border-radius: 5px;
+}
+form button:hover {
+    background-color: rgb(235, 188, 188);
+}
+
+/* media query for form below 800px */
+@media screen and (max-width: 800px){
+    
+    form {
+        width: 60%;
+    }
+    form label {
+        display: block;
+        width: 100%;
+        
+    }
+    form input {
+        display: block;       
+        float: none;
+        width: 100%;
+    }
+    form select {
+        display: block;
+        margin-bottom: 10px;
+        float: none;
+        width: 100%;
+    }
+    form textarea {       
+        height: 400px;
+    }  
+}
+@media screen and (max-width: 600px){
+    form {
+        width: 80%;
+    }
+    form textarea {       
+        height: 500px;
+        
+    }
+    #video iframe {
+      width: 400px;
+      height: 300px;
+  }
+}
+
+/* supporter-form.html */
+/* banner and title */
+#supporter-banner {
+    width: 100%;
+    position: relative;
+    background: url('../images/afghan-girl-hope.jpg') no-repeat center center;
+    background-size: cover;    
+    height: 400px;
+    display: flex;    
+    align-items: flex-end;
+    background-position: center 70%;
+}
+#supporter-banner h1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;    
+    background-color: rgb(224, 219, 219, .7);
+    color: #96052e;
+    font-size: 300%;
+    font-weight: bold;
+    text-align: center;    
+}
+
+/* institute-form.html */
+/* banner and title */
+#institute-banner {
+    width: 100%;
+    position: relative;
+    background: url('../images/girl-window.jpg') no-repeat center center;
+    background-size: cover;    
+    height: 400px;
+    display: flex;    
+    align-items: flex-end;
+   
+}
+#institute-banner h1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;    
+    background-color: rgb(224, 219, 219, .7);
+    color: #96052e;
+    font-size: 300%;
+    font-weight: bold;
+    text-align: center;    
+}
+
+@media screen and (max-width: 470px){
+    #apply-banner h1 {
+        font-size: 10vw;
+    } 
+    
+    #supporter-banner h1 {
+        font-size: 10vw;
+    } 
+
+    #institute-banner h1 {
+        font-size: 10vw;
+    } 
+}
+
+@media screen and (max-width: 400px){
+  form {
+      width: 80%;
+  }
+  form textarea {       
+      height: 500px;
+      
+  }
+  #video iframe {
+    width: 280px;
+    height: 220px;
+}
+}
+
+/* login page banner */
+
+#login-banner {
+    width: 100%;
+    position: relative;
+    background: url('../images/afghan-girl-heart1.jpg') no-repeat center center;
+    background-size: contain;    
+    height: 900px;
+    background-position: top;   
+    
+}
+
+#login-banner form {        
+    margin-top: 15%;
+    margin-left: 55%;   
+    background-color: rgba(48, 27, 6, 0.8);    
+    font-size: 130%;   
+    padding: 20px;
+    color: #f5d3a3;
+    width: 25%;         
+}
+
+#login-banner h1 {        
+    display: flex;    
+    font-size: 110%;
+    font-weight: bold;
+    text-align: left;
+    color: #f5d3a3; 
+      
+}
+
+#login-banner div {
+    padding: 0;
+}
+
+#login-banner form label {
+    display: block;
+    width: 100%;
+    color: #f5d3a3;
+    
+}
+#login-banner form input {
+    display: block;       
+    float: none;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #f5d3a3;
+}
+
+
+#login-banner button {    
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 100%;
+    background-color: #7ebea6;
+    color: #f5d3a3;
+    list-style: none;
+    margin-top: 20px;
+    padding: 10px;
+     
+}
+
+@media screen and (max-width: 1160px) {  
+    
+    #login-banner {
+        background-size: contain;          
+     }
+     
+     #login-banner form { 
+        width: 290px;          
+        margin-top: 15%;
+        margin-left: 55%; 
+}
+}
+
+@media screen and (max-width: 950px) {
+   
+    #login-banner {
+        background-size: cover;
+        max-height: 500px;        
+        display: flex;       
+    }
+    
+    #login-banner form {         
+        width: 290px;
+        margin: 90px auto;                 
+    }
+}
+
+@media screen and (max-width: 720px) {
+    #login-banner {
+        position: relative;
+        display: flex;      
+        background-position: 20% center;        
+    }
+
+    #login-banner form {         
+        width: 290px;
+        justify-content: center;
+        align-items: center;              
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #login-banner form {         
+        width: 90%;
+        margin: auto 10px;          
+    }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Empowering Afghan Women and girls as freelancer to find out job online and work from home as Taliban banned Education and work for women and girls.">
+    <meta name="keywords"
+        content="Afghanistan, woman, women, girl, code, coding, empowering women, online job, Taliban, freelancer">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/logo-white-rbg.png" type="image\png">
+    <title>Afghanistan Women Freelancers</title>
+</head>
+
+<body>
+    
+    <!--menu and login-->
+    <Header>       
+        <Nav>
+            <ul id="menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="apply-form.html">Apply</a></li>
+                <li><a href="supporter-form.html">Support</a></li>
+                <li><a href="institute-form.html">Institutions</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </Nav>
+        <section id="login">
+            <div>
+                <select>
+                    <option value="applicant">Applicant</option>
+                    <option value="supporter">Supporter</option>
+                    <option value="institute">Institution</option>
+                </select>
+            </div>
+            <div class="button"><a href="login.html">Log in</a></div>
+        </section>
+    </Header>
+
+<!-- title on the banner -->
+
+    <section id="institute-banner">        
+        <h1>Institution Information</h1>        
+    </section>
+
+<!-- form -->
+
+    <section id="form-container">
+        <form action="process-form.php" method="POST">
+            <h3>Institute Information</h3>
+            <hr><br>
+            <div>
+                <label for="ins-name">Institute Name:</label>
+                <input type="text" id="ins-name" name="Institute Name">
+            </div>
+           
+            <div>
+                <label for="established-year">Established Year:</label>
+                <input type="text" id="established-year" name="Established Year">
+            </div>            
+            
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="Address">
+            </div>
+
+            <div>
+                <label for="email-address">Email Address:</label>
+                <input type="email" id="email-address" name="Email Address">
+            </div>
+
+            <div>
+                <label for="phone-number">Phone Number:</label>
+                <input type="tel" id="phone-number" name="Phone No.">
+            </div>
+
+            <br>
+            <h3>What courses do you offer?</h3>
+            <hr><br>
+
+            <table>
+                <tr>
+                    <td><input type="checkbox" id="honesty-check" name="Honesty Check" value="yes" style= "width: 20px; height: 20px;"></td>
+                    <td><label for="honesty-check">coding</label></td>
+                </tr> 
+                
+                <tr>
+                    <td><input type="checkbox" id="honesty-check" name="Honesty Check" value="yes" style= "width: 20px; height: 20px;"></td>
+                    <td><label for="honesty-check">Graphic Designing</label></td>
+                </tr>
+
+                <tr>
+                    <td><input type="checkbox" id="honesty-check" name="Honesty Check" value="yes" style= "width: 20px; height: 20px;"></td>
+                    <td><label for="honesty-check">Digital Marketing</label></td>
+                </tr>
+            </table>          
+            
+            <div>
+                <label for="brochure-upload">Please upload brochure!</label>
+                <input type="file" id="brochure-upload" name="Brochure">                                
+            </div>
+            
+            <br>
+            <h3>Why do you think you can help us?</h3>
+            <hr><br>
+
+            <div>               
+                <textarea name="why" placeholder="max 500 words"></textarea>                            
+            </div>     
+            
+
+            <br><br>
+
+            <div>
+                <button type="submit">Send</button>
+                <button type="reset">Clear Form</button>
+            </div>
+        </form>
+    </section>
+
+    
+</body>
+
