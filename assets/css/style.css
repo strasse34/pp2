@@ -1,3 +1,4 @@
+/* header */
 header {
     display: flex;
     justify-content: space-between;
@@ -14,4 +15,47 @@ header li {
     list-style: none;
     display: inline-block;
     padding-left: 10px;
+}
+
+/* home page */
+section {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* game space */
+#game-space {
+    background-color: antiquewhite;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#answer-space {
+
+}
+
+#eng-meaning {
+
+}
+
+#game-space li {
+    list-style: none;
+    display: inline;
+}
+/* scor space */
+#score-space {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 100px;
+    margin-left: 100px;
+    align-items: center;
+    font-size: 1.8rem;
+    
+    
 }
