@@ -88,11 +88,11 @@ section {
 /* list.html */
 #table-page {
     display: flex;    
-    width: 100%;
+    width: 100vw;
+    justify-content: space-evenly;
 }
 
 .table {    
-    min-width: 300px;
     display: block;
     margin: 0 auto;
     font-size: 1rem;   
