@@ -21,12 +21,13 @@ header li {
 section {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 5vh;
 }
 
 /* game space */
-#game-space {
-    background-color: antiquewhite;
-    width: 60vw;
+#game-space {   
+    border-right: 1px solid black;
+    width: 70vw;
     display: flex;
     flex-direction: column;
     font-size: 3rem;
@@ -34,28 +35,41 @@ section {
     align-items: center;
 }
 
-#answer-space {
-
+#answer-space {    
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
 }
 
 #eng-meaning {
-
+    color: rgb(61, 119, 46);
+    font-size: 2rem;
 }
 
 #game-space li {
     list-style: none;
-    display: inline;
-}
+    display: inline-flex;
+    padding: 10px;
+    }
 /* scor space */
 #score-space {
-    width: 40vw;
+    width: 30vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 100px;
-    margin-left: 100px;
+    margin-right: 50px;
+    margin-left: 50px;
     align-items: center;
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     
     
+}
+#score-space div {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+#check-box {
+    border-top: 1px solid black;
 }
