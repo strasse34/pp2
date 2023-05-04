@@ -1,6 +1,37 @@
-setInterval(function(){ 
-    let timerElement = document.getElementById('timer');
-    let currentTime = timerElement.innerHTML;
-    currentTime++;
-    timerElement.innerHTML = currentTime;
-}, 1000);
+document.addEventListener('DOMContentLoaded', function(){
+    let newWord = document.querySelector("#ent-der td:nth-child(3)");
+    let newWordText = newWord.textContent;
+    let answer = document.getElementById('answer');
+    answer.textContent = newWordText; 
+    return answer.textContent; 
+})
+
+
+function runGame(){
+
+}
+
+function getAnswer(){
+
+}
+
+function checkAnswer(){
+
+}
+
+function answerFeedback(){
+
+}
+
+function incrementGreen(){
+
+}
+
+function incrementRed(){
+
+}
+
+function practiceRed(){
+
+}
+
