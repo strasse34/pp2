@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let newWordText = newWord.textContent;
     let answer = document.getElementById('answer');
     answer.textContent = newWordText; 
-    return answer.textContent; 
+    
 })
 
 
