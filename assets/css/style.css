@@ -54,7 +54,14 @@ section {
     padding: 10px;
     font-size: x-large;
     margin-top: 50px;
+    margin-bottom: 10px;
     }
+
+    #check-box {
+        border-top: 1px solid black;
+        font-size: 1.3rem;
+    }
+
 
 /* scor space */
 #score-space {
@@ -75,6 +82,4 @@ section {
     justify-content: space-between;
     flex-direction: row;
 }
-#check-box {
-    border-top: 1px solid black;
-}
+
