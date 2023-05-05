@@ -97,7 +97,7 @@ section {
 /* ========================================================================= */
 /* list.html */
 #table-page {
-    display: flex;    
+    display: none;        
     width: 100vw;
     justify-content: space-evenly;
 }
