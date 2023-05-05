@@ -1,0 +1,1 @@
+i learnt this (#ent-der td:nth-child(1)) from chatGPT.
