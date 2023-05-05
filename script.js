@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', function(){
-    let newWord = document.querySelector("#ent-der td:nth-child(3)");
-    let newWordText = newWord.textContent;
-    let answer = document.getElementById('answer');
-    answer.textContent = newWordText; 
+    let findNumber = document.querySelector("#ent-der td:nth-child(1)");
+    let number = findNumber.textContent;
+    if (number === 1){
+        let newWord = document.querySelector("#ent-der td:nth-child(3)");
+        let newWordText = newWord.textContent;
+        let answer = document.getElementById('answer');
+        answer.textContent = newWordText;
+    }
+     
     
+
 })
 
 
