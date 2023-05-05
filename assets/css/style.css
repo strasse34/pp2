@@ -46,17 +46,21 @@ section {
 #article {
     width: 50px;
     background-color: aqua;
+    text-transform: capitalize;
 }
 
 #answer {
     width: 200px;
     background-color: antiquewhite;
+    text-transform: capitalize;
 }
 
-#eng-meaning {
-    color: rgb(61, 119, 46);
+#eng-meaning {    
     font-size: 2rem;
     margin-top: 10px;
+    width: 200px;
+    background-color: rgb(226, 203, 172);
+    text-transform: capitalize;
 }
 
 #game-space button {
