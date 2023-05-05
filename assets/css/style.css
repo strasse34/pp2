@@ -43,6 +43,16 @@ section {
     gap: 2rem;
 }
 
+#article {
+    width: 50px;
+    background-color: aqua;
+}
+
+#answer {
+    width: 200px;
+    background-color: antiquewhite;
+}
+
 #eng-meaning {
     color: rgb(61, 119, 46);
     font-size: 2rem;
