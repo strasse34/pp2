@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function(){
     let currentRow= 0;
     let articleList = [];    
     let wordList =[];
-    let meaningList = [];
-   
+    let meaningList = [];   
+
     // getting words
     function word(){
         let findWord = document.querySelectorAll("#ent-words td:nth-child(2)");   
@@ -34,7 +34,12 @@ document.addEventListener('DOMContentLoaded', function(){
             articleList.push(article);
             }        
         }  
-        
+    
+    function updageTotalWord(){
+        let totalWord = document.getElementById('t-words');        
+        totalWord.textContent = wordList.length;
+    }
+    // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
     function nextPair(){
         currentRow++;
         if (currentRow >= wordList.length){
@@ -44,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function(){
         meaning();
     }
     
+    // proper article from articleList displayed for 2 seconds and then get back to default and listen to next click.
     function displayArticle(){
         let articleElement = document.getElementById('article');
         articleElement.textContent = articleList[currentRow];
@@ -55,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         
     
-    
+    // listen to derButton and check the answer with 'der' article and giving feedback to the user.
     function derButton(){        
         let articleElement = document.getElementById('article');
         let derButton = document.getElementById('der');                            
@@ -68,6 +74,8 @@ document.addEventListener('DOMContentLoaded', function(){
             displayArticle();            
         }) 
     }
+
+    // listen to dieButton and check the answer with 'der' article and giving feedback to the user.
     function dieButton(){
         let articleElement = document.getElementById('article');
         let dieButton = document.getElementById('die');
@@ -78,9 +86,10 @@ document.addEventListener('DOMContentLoaded', function(){
             } else { articleElement.style.backgroundColor = 'red';}
             let article = articleList[currentRow];
             displayArticle();            
-        })
-        
+        })       
     }
+
+    // listen to dasButton and check the answer with 'der' article and giving feedback to the user.
     function dasButton(){
         let articleElement = document.getElementById('article');
         let dasButton = document.getElementById('das');
@@ -100,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function(){
     derButton();
     dieButton();
     dasButton();
+    updageTotalWord();
        
 });
 
