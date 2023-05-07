@@ -49,29 +49,46 @@ document.addEventListener('DOMContentLoaded', function(){
         articleElement.textContent = articleList[currentRow];
         setTimeout(function(){
             articleElement.textContent = '';
+            articleElement.style.backgroundColor = '';
+            question.style.backgroundColor = '';
             nextPair(); }, 2000);                        
         }
         
     
     
-    function derButton(){       
-        let derButton = document.getElementById('der');
-        derButton.addEventListener('click', function(){
+    function derButton(){        
+        let articleElement = document.getElementById('article');
+        let derButton = document.getElementById('der');                            
+        derButton.addEventListener('click', function(){                        
+            let currentArticle = articleList[currentRow];            
+            if (currentArticle === 'der'){
+                articleElement.style.backgroundColor = 'green';            
+            } else { articleElement.style.backgroundColor = 'red';}
             let article = articleList[currentRow];
             displayArticle();            
         }) 
     }
     function dieButton(){
+        let articleElement = document.getElementById('article');
         let dieButton = document.getElementById('die');
         dieButton.addEventListener('click', function(){
+            let currentArticle = articleList[currentRow];            
+            if (currentArticle === 'die'){
+            articleElement.style.backgroundColor = 'green';            
+            } else { articleElement.style.backgroundColor = 'red';}
             let article = articleList[currentRow];
             displayArticle();            
         })
         
     }
     function dasButton(){
+        let articleElement = document.getElementById('article');
         let dasButton = document.getElementById('das');
         dasButton.addEventListener('click', function(){
+            let currentArticle = articleList[currentRow];            
+            if (currentArticle === 'das'){
+            articleElement.style.backgroundColor = 'green';            
+            } else { articleElement.style.backgroundColor = 'red';}
             let article = articleList[currentRow];
             displayArticle();            
         })

@@ -44,14 +44,12 @@ section {
 }
 
 #article {
-    width: 100px;
-    background-color: aqua;
+    width: 75px;    
     text-transform: capitalize;
 }
 
 #answer {
-    width: 200px;
-    background-color: antiquewhite;
+    width: 200px;    
     text-transform: capitalize;
 }
 
