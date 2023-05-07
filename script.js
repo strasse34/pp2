@@ -35,12 +35,24 @@ document.addEventListener('DOMContentLoaded', function(){
             let article = findArticle[i].textContent;
             articleList.push(article);
             }        
-        }  
+    }  
     
-    function updateRemaining(){
-        let totalRemaining = document.getElementById('t-remain');        
-        totalRemaining.textContent = wordList.length;
+    // counting total words
+    function totalWordsCal(){
+        let totalWords = document.getElementById('t-words');        
+        totalWords.textContent = parseInt(wordList.length);
     }
+
+    function wordsCal(){
+        let totalLearned = parseInt(document.getElementById('t-learned').textContent);        
+        let totalMissed = parseInt(document.getElementById('t-missed').textContent);
+        let learnedMissed = totalLearned + totalMissed;        
+        let totalRemaining = parseInt(wordList.length) - learnedMissed;
+        let remainCell = document.getElementById('t-remain');
+        remainCell.textContent = totalRemaining;
+    }
+
+    
     // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
     function nextPair(){
         currentRow++;
@@ -59,7 +71,8 @@ document.addEventListener('DOMContentLoaded', function(){
             articleElement.textContent = '';
             articleElement.style.backgroundColor = '';
             question.style.backgroundColor = '';
-            nextPair(); }, 2000);                        
+            nextPair(); }, 2000); 
+            wordsCal();                       
         }
     
     // moving rows to green and red tables
@@ -78,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function(){
         learnedWordList.push(currentWord);
         let green = document.querySelector('#t-learned');                    
         green.textContent = learnedWordList.length;
-        console.log(learnedWordList.length);
+        console.log(learnedWordList.length);        
         }
 
     function moveWordsToRed() {
@@ -96,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function(){
         missedWordList.push(currentWord);
         let green = document.querySelector('#t-missed');                    
         green.textContent = missedWordList.length;
-        console.log(missedWordList.length);
+        console.log(missedWordList.length);        
     }    
 
 
@@ -112,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 } else { articleElement.style.backgroundColor = 'red';
                 moveWordsToRed(); }
             let article = articleList[currentRow];
-            displayArticle();                               
+            displayArticle();                                              
         });
     }
     
@@ -129,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function(){
             } else { articleElement.style.backgroundColor = 'red';
             moveWordsToRed();}
             let article = articleList[currentRow];
-            displayArticle();                       
+            displayArticle();                                   
         });       
     }
 
@@ -143,9 +156,9 @@ document.addEventListener('DOMContentLoaded', function(){
             articleElement.style.backgroundColor = 'green';
             moveWordsToGreen();            
             } else { articleElement.style.backgroundColor = 'red';
-            moveWordsToRed();}
+            moveWordsToRed();}            
             let article = articleList[currentRow];
-            displayArticle();                        
+            displayArticle();                                              
         });
     }
 
@@ -157,8 +170,6 @@ document.addEventListener('DOMContentLoaded', function(){
     derButton();
     dieButton();
     dasButton();
-    updateRemaining();
-    
-       
+    totalWordsCal();      
 });
 
