@@ -41,16 +41,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function totalWordsCal(){
         let totalWords = document.getElementById('t-words');        
         totalWords.textContent = parseInt(wordList.length);
-    }
-
-    function wordsCal(){
-        let totalLearned = parseInt(document.getElementById('t-learned').textContent);        
-        let totalMissed = parseInt(document.getElementById('t-missed').textContent);
-        let learnedMissed = totalLearned + totalMissed;        
-        let totalRemaining = parseInt(wordList.length) - learnedMissed;
-        let remainCell = document.getElementById('t-remain');
-        remainCell.textContent = totalRemaining;
-    }
+    }  
 
     
     // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
@@ -60,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function(){
             currentRow = 0;
         }
         word();
-        meaning();
+        meaning();        
     }
     
     // proper article from articleList displayed for 2 seconds and then get back to default and listen to next click.
@@ -70,11 +61,15 @@ document.addEventListener('DOMContentLoaded', function(){
         setTimeout(function(){
             articleElement.textContent = '';
             articleElement.style.backgroundColor = '';
-            question.style.backgroundColor = '';
-            nextPair(); }, 2000); 
-            wordsCal();                       
+            question.style.backgroundColor = '';            
+            nextPair(); }, 2000);                                   
         }
     
+    function removeTableRow() {
+        let table = document.getElementById('ent-words');
+        table.deleteRow(currentRow); 
+          }
+
     // moving rows to green and red tables
     function moveWordsToGreen() {
         let learnedTable = document.getElementById('learned-words');
@@ -91,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function(){
         learnedWordList.push(currentWord);
         let green = document.querySelector('#t-learned');                    
         green.textContent = learnedWordList.length;
-        console.log(learnedWordList.length);        
+        console.log(green.textContent);                          
         }
 
     function moveWordsToRed() {
@@ -107,14 +102,15 @@ document.addEventListener('DOMContentLoaded', function(){
             </tr>
         `;
         missedWordList.push(currentWord);
-        let green = document.querySelector('#t-missed');                    
-        green.textContent = missedWordList.length;
-        console.log(missedWordList.length);        
+        let red = document.querySelector('#t-missed');                    
+        red.textContent = missedWordList.length;
+        console.log(red.textContent);                             
     }    
 
+    
 
     // listen to derButton and check the answer with 'der' article and giving feedback to the user.
-    function derButton(){        
+    function derButton(){     
         let articleElement = document.getElementById('article');
         let derButton = document.getElementById('der');                            
         derButton.addEventListener('click', function(){                        
@@ -124,8 +120,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 moveWordsToGreen();                                                                                                             
                 } else { articleElement.style.backgroundColor = 'red';
                 moveWordsToRed(); }
-            let article = articleList[currentRow];
-            displayArticle();                                              
+            let article = articleList[currentRow];            
+            displayArticle();                                                               
         });
     }
     
@@ -142,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function(){
             } else { articleElement.style.backgroundColor = 'red';
             moveWordsToRed();}
             let article = articleList[currentRow];
-            displayArticle();                                   
+            displayArticle();                                         
         });       
     }
 
@@ -158,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function(){
             } else { articleElement.style.backgroundColor = 'red';
             moveWordsToRed();}            
             let article = articleList[currentRow];
-            displayArticle();                                              
+            displayArticle();                                                                              
         });
     }
 
@@ -169,7 +165,11 @@ document.addEventListener('DOMContentLoaded', function(){
     meaning();
     derButton();
     dieButton();
-    dasButton();
-    totalWordsCal();      
+    dasButton(); 
+    totalWordsCal();        
+    
+    
+    
+          
 });
 
