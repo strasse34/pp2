@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function(){
             }        
         }  
     
-    function updageTotalWord(){
-        let totalWord = document.getElementById('t-words');        
-        totalWord.textContent = wordList.length;
+    function updateRemaining(){
+        let totalRemaining = document.getElementById('t-remain');        
+        totalRemaining.textContent = wordList.length;
     }
     // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
     function nextPair(){
@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function(){
             nextPair(); }, 2000);                        
         }
     
+    // moving rows to green and red tables
     function moveWordsToGreen() {
         let learnedTable = document.getElementById('learned-words');
         let currentArticle = articleList[currentRow];
@@ -96,7 +97,8 @@ document.addEventListener('DOMContentLoaded', function(){
         let green = document.querySelector('#t-missed');                    
         green.textContent = missedWordList.length;
         console.log(missedWordList.length);
-        }
+    }    
+
 
     // listen to derButton and check the answer with 'der' article and giving feedback to the user.
     function derButton(){        
@@ -155,7 +157,8 @@ document.addEventListener('DOMContentLoaded', function(){
     derButton();
     dieButton();
     dasButton();
-    updageTotalWord();
+    updateRemaining();
+    
        
 });
 

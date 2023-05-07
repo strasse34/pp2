@@ -35,10 +35,11 @@ document.addEventListener('DOMContentLoaded', function(){
             }        
         }  
     
-    function updageTotalWord(){
-        let totalWord = document.getElementById('t-words');        
+    function updateRmaining(){
+        let totalWord = document.getElementById('t-remain');        
         totalWord.textContent = wordList.length;
     }
+
     // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
     function nextPair(){
         currentRow++;
@@ -60,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function(){
             nextPair(); }, 2000);                        
         }
     
+    // moving rows to green and red tables
     function moveWords(){
         let learnedTable = document.getElementById('learned-words')
         let currentArticle = articleList[currentRow];
@@ -72,17 +74,15 @@ document.addEventListener('DOMContentLoaded', function(){
                 <td>${curreentMeaning}</td>
             </tr>
             `;
-            setTimeout(() => {
-                learnedWordList = [];
-                let findLearnedWord = document.querySelectorAll("#learned-words td:nth-child(2)");   
-                for (let i = 0; i < findLearnedWord.length; i++) {
-                  let learnedWord = findLearnedWord[i].textContent; 
-                  learnedWordList.push(learnedWord);       
+            learnedWordList = [];
+            let findLearnedWord = document.querySelectorAll("#learned-words td:first-child");   
+            for (i = 0; i < findLearnedWord.length; i++){
+                let learnedWord = findLearnedWord[i].textContent; 
+                learnedWordList.push(learnedWord);       
                 } 
-                let green = document.querySelector('#t-learned');                    
-                green.textContent = learnedWordList.length;
-                console.log(learnedWordList.length);
-              }, 10); 
+            let green = document.querySelector('#t-learned');                    
+            green.textContent = learnedWordList.length;
+            console.log(learnedWordList.length); 
     }
     // listen to derButton and check the answer with 'der' article and giving feedback to the user.
     function derButton(){        
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function(){
     derButton();
     dieButton();
     dasButton();
-    updageTotalWord();
+    updateRmaining();
        
 });
 
