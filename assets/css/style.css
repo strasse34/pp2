@@ -44,7 +44,7 @@ section {
 }
 
 #article {
-    width: 50px;
+    width: 100px;
     background-color: aqua;
     text-transform: capitalize;
 }

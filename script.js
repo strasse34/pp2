@@ -27,44 +27,14 @@ document.addEventListener('DOMContentLoaded', function(){
         engMeaning.textContent = meaningList[currentRow];           
     } 
     // getting article
-    function article(){
+    function getArticle(){
         let findArticle = document.querySelectorAll("#ent-words td:nth-child(1)");        
         for (let i = 0; i < findArticle.length; i++ ){            
             let article = findArticle[i].textContent;
             articleList.push(article);
             }        
-        }   
-
-    function derButton(){       
-        let derButton = document.getElementById('der');
-        derButton.addEventListener('click', function(){
-            let article = document.getElementById('article');
-            displayArticle(article);
-        }) 
-    }
-    function dieButton(){
-        let dieButton = document.getElementById('der');
-        dieButton.addEventListener('click', function(){
-            let article = document.getElementById('article');
-            displayArticle(article);
-        })
+        }  
         
-    }
-    function dasButton(){
-        let dasButton = document.getElementById('der');
-        dasButton.addEventListener('click', function(){
-            let article = document.getElementById('article');
-            displayArticle(article);
-        })
-    }
-
-    function displayArticle(){
-        let articleElement = document.addEventListener('article');
-        article.textContent = article;
-        setTimeout(function(){
-            nextPair(); }, 2000);
-        }
-
     function nextPair(){
         currentRow++;
         if (currentRow >= wordList.length){
@@ -74,36 +44,45 @@ document.addEventListener('DOMContentLoaded', function(){
         meaning();
     }
     
-    article();
+    function displayArticle(){
+        let articleElement = document.getElementById('article');
+        articleElement.textContent = articleList[currentRow];
+        setTimeout(function(){
+            articleElement.textContent = '';
+            nextPair(); }, 2000);                        
+        }
+        
+    
+    
+    function derButton(){       
+        let derButton = document.getElementById('der');
+        derButton.addEventListener('click', function(){
+            let article = articleList[currentRow];
+            displayArticle();            
+        }) 
+    }
+    function dieButton(){
+        let dieButton = document.getElementById('die');
+        dieButton.addEventListener('click', function(){
+            let article = articleList[currentRow];
+            displayArticle();            
+        })
+        
+    }
+    function dasButton(){
+        let dasButton = document.getElementById('das');
+        dasButton.addEventListener('click', function(){
+            let article = articleList[currentRow];
+            displayArticle();            
+        })
+    }
+       
+    getArticle();
     word();
     meaning();
     derButton();
     dieButton();
-    dasButton();   
-    
+    dasButton();
+       
 });
-
-
-
-function continueGame(){   
-    word();
-    meaning();
-    }
-        
-
-
-
-// 
-
-// function incrementGreen(){
-   
-// }
-
-// function incrementRed(){
-
-// }
-
-// function practiceRed(){
-
-// }
 
