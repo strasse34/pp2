@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let currentRow= 0;
     let articleList = [];    
     let wordList =[];
-    let meaningList = []; 
-    let learnedWordList= [];
-    let missedWordList= [];  
+    let meaningList = [];   
 
     // getting words
     function word(){
@@ -62,42 +60,30 @@ document.addEventListener('DOMContentLoaded', function(){
             nextPair(); }, 2000);                        
         }
     
-    function moveWordsToGreen() {
-        let learnedTable = document.getElementById('learned-words');
+    function moveWords(){
+        let learnedTable = document.getElementById('learned-words')
         let currentArticle = articleList[currentRow];
         let currentWord = wordList[currentRow];
-        let currentMeaning = meaningList[currentRow];    
+        let curreentMeaning = meaningList[currentRow];    
         learnedTable.innerHTML += `
             <tr>    
                 <td>${currentArticle}</td>
                 <td>${currentWord}</td>
-                <td>${currentMeaning}</td>
+                <td>${curreentMeaning}</td>
             </tr>
-        `;
-        learnedWordList.push(currentWord);
-        let green = document.querySelector('#t-learned');                    
-        green.textContent = learnedWordList.length;
-        console.log(learnedWordList.length);
-        }
-
-    function moveWordsToRed() {
-        let missedTable = document.getElementById('missed-words');
-        let currentArticle = articleList[currentRow];
-        let currentWord = wordList[currentRow];
-        let currentMeaning = meaningList[currentRow];    
-        missedTable.innerHTML += `
-            <tr>    
-                <td>${currentArticle}</td>
-                <td>${currentWord}</td>
-                <td>${currentMeaning}</td>
-            </tr>
-        `;
-        missedWordList.push(currentWord);
-        let green = document.querySelector('#t-missed');                    
-        green.textContent = missedWordList.length;
-        console.log(missedWordList.length);
-        }
-
+            `;
+            setTimeout(() => {
+                learnedWordList = [];
+                let findLearnedWord = document.querySelectorAll("#learned-words td:nth-child(2)");   
+                for (let i = 0; i < findLearnedWord.length; i++) {
+                  let learnedWord = findLearnedWord[i].textContent; 
+                  learnedWordList.push(learnedWord);       
+                } 
+                let green = document.querySelector('#t-learned');                    
+                green.textContent = learnedWordList.length;
+                console.log(learnedWordList.length);
+              }, 10); 
+    }
     // listen to derButton and check the answer with 'der' article and giving feedback to the user.
     function derButton(){        
         let articleElement = document.getElementById('article');
@@ -105,12 +91,11 @@ document.addEventListener('DOMContentLoaded', function(){
         derButton.addEventListener('click', function(){                        
             let currentArticle = articleList[currentRow];            
             if (currentArticle === 'der'){
-                articleElement.style.backgroundColor = 'green';
-                moveWordsToGreen();                                                                                                             
-                } else { articleElement.style.backgroundColor = 'red';
-                moveWordsToRed(); }
+                articleElement.style.backgroundColor = 'green';                                                                                                             
+                } else { articleElement.style.backgroundColor = 'red';}
             let article = articleList[currentRow];
-            displayArticle();                               
+            displayArticle();
+            moveWords();                     
         });
     }
     
@@ -122,12 +107,10 @@ document.addEventListener('DOMContentLoaded', function(){
         dieButton.addEventListener('click', function(){
             let currentArticle = articleList[currentRow];            
             if (currentArticle === 'die'){
-            articleElement.style.backgroundColor = 'green';
-            moveWordsToGreen();            
-            } else { articleElement.style.backgroundColor = 'red';
-            moveWordsToRed();}
+            articleElement.style.backgroundColor = 'green';            
+            } else { articleElement.style.backgroundColor = 'red';}
             let article = articleList[currentRow];
-            displayArticle();                       
+            displayArticle();            
         });       
     }
 
@@ -138,12 +121,10 @@ document.addEventListener('DOMContentLoaded', function(){
         dasButton.addEventListener('click', function(){
             let currentArticle = articleList[currentRow];            
             if (currentArticle === 'das'){
-            articleElement.style.backgroundColor = 'green';
-            moveWordsToGreen();            
-            } else { articleElement.style.backgroundColor = 'red';
-            moveWordsToRed();}
+            articleElement.style.backgroundColor = 'green';            
+            } else { articleElement.style.backgroundColor = 'red';}
             let article = articleList[currentRow];
-            displayArticle();                        
+            displayArticle();            
         });
     }
 
