@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let articleList = [];    
     let wordList =[];
     let meaningList = []; 
-    let learnedWordList= [];
-    let missedWordList= [];  
-
+   
     // getting words
     function word(){
         let findWord = document.querySelectorAll("#ent-words td:nth-child(2)");   
@@ -16,7 +14,9 @@ document.addEventListener('DOMContentLoaded', function(){
         wordList.push(word);       
         } 
         let question = document.getElementById('question');
-        question.textContent = wordList[currentRow];   
+        question.textContent = wordList[currentRow];
+        let totalWord = document.getElementById('t-words');
+        totalWord.innerText = findWord.length;
     }
     // getting words' meaning
     function meaning(){ 
@@ -35,14 +35,38 @@ document.addEventListener('DOMContentLoaded', function(){
             let article = findArticle[i].textContent;
             articleList.push(article);
             }        
-    }  
+    }
     
-    // counting total words
-    function totalWordsCal(){
-        let totalWords = document.getElementById('t-words');        
-        totalWords.textContent = parseInt(wordList.length);
-    }  
+    // score space calculation
+    function incrementGreen(){
+        let greenBox = parseInt(document.getElementById('t-learned').textContent);
+        document.getElementById('t-learned').innerText = ++greenBox;
+    }
 
+    function incrementRed(){
+        let redBox = parseInt(document.getElementById('t-missed').textContent);
+        document.getElementById('t-missed').innerText = ++redBox;
+        
+    }
+
+    function remainCal(){
+        let a = document.getElementById('t-learned').innerText;
+        let b = document.getElementById('t-missed').innerText;
+        let c = document.getElementById('t-words').innerText;
+
+        let remainWords = document.getElementById('t-remain');
+        remainWords.innerText = (parseInt(c) - (parseInt(a) + parseInt(b)));
+
+        if(remainWords.innerText === 0){
+            alert('There is no new words to practice. Please check Missed Words Practice to practice missed words!');
+            checkBox = document.getElementbyId('missed-words-practic').value;
+            if(checkBox === checked){
+                parcticeMissedWords();
+            } else {
+                location.reload();
+            }     
+        }
+    }
     
     // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
     function nextPair(){
@@ -62,53 +86,10 @@ document.addEventListener('DOMContentLoaded', function(){
             articleElement.textContent = '';
             articleElement.style.backgroundColor = '';
             question.style.backgroundColor = '';            
-            nextPair(); }, 2000);                                   
+            nextPair(); }, 2000);
+            remainCal();                                   
         }
     
-    function removeTableRow() {
-        let table = document.getElementById('ent-words');
-        table.deleteRow(currentRow); 
-          }
-
-    // moving rows to green and red tables
-    function moveWordsToGreen() {
-        let learnedTable = document.getElementById('learned-words');
-        let currentArticle = articleList[currentRow];
-        let currentWord = wordList[currentRow];
-        let currentMeaning = meaningList[currentRow];    
-        learnedTable.innerHTML += `
-            <tr>    
-                <td>${currentArticle}</td>
-                <td>${currentWord}</td>
-                <td>${currentMeaning}</td>
-            </tr>
-        `;
-        learnedWordList.push(currentWord);
-        let green = document.querySelector('#t-learned');                    
-        green.textContent = learnedWordList.length;
-        console.log(green.textContent);                          
-        }
-
-    function moveWordsToRed() {
-        let missedTable = document.getElementById('missed-words');
-        let currentArticle = articleList[currentRow];
-        let currentWord = wordList[currentRow];
-        let currentMeaning = meaningList[currentRow];    
-        missedTable.innerHTML += `
-            <tr>    
-                <td>${currentArticle}</td>
-                <td>${currentWord}</td>
-                <td>${currentMeaning}</td>
-            </tr>
-        `;
-        missedWordList.push(currentWord);
-        let red = document.querySelector('#t-missed');                    
-        red.textContent = missedWordList.length;
-        console.log(red.textContent);                             
-    }    
-
-    
-
     // listen to derButton and check the answer with 'der' article and giving feedback to the user.
     function derButton(){     
         let articleElement = document.getElementById('article');
@@ -117,9 +98,9 @@ document.addEventListener('DOMContentLoaded', function(){
             let currentArticle = articleList[currentRow];            
             if (currentArticle === 'der'){
                 articleElement.style.backgroundColor = 'green';
-                moveWordsToGreen();                                                                                                             
+                incrementGreen();                                                                                                            
                 } else { articleElement.style.backgroundColor = 'red';
-                moveWordsToRed(); }
+                incrementRed()}
             let article = articleList[currentRow];            
             displayArticle();                                                               
         });
@@ -134,9 +115,9 @@ document.addEventListener('DOMContentLoaded', function(){
             let currentArticle = articleList[currentRow];            
             if (currentArticle === 'die'){
             articleElement.style.backgroundColor = 'green';
-            moveWordsToGreen();            
+            incrementGreen();          
             } else { articleElement.style.backgroundColor = 'red';
-            moveWordsToRed();}
+            incrementRed()}
             let article = articleList[currentRow];
             displayArticle();                                         
         });       
@@ -150,26 +131,21 @@ document.addEventListener('DOMContentLoaded', function(){
             let currentArticle = articleList[currentRow];            
             if (currentArticle === 'das'){
             articleElement.style.backgroundColor = 'green';
-            moveWordsToGreen();            
+            incrementGreen();           
             } else { articleElement.style.backgroundColor = 'red';
-            moveWordsToRed();}            
+            incrementRed()}            
             let article = articleList[currentRow];
             displayArticle();                                                                              
         });
     }
 
-    
-       
     getArticle();
     word();
     meaning();
     derButton();
     dieButton();
     dasButton(); 
-    totalWordsCal();        
-    
-    
-    
+    totalWordsCal();
           
-});
+});  
 
