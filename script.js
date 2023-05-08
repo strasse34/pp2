@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let articleList = [];    
     let wordList =[];
     let meaningList = []; 
+    
    
     // getting words
     function word(){
@@ -57,17 +58,27 @@ document.addEventListener('DOMContentLoaded', function(){
         let remainWords = document.getElementById('t-remain');
         remainWords.innerText = (parseInt(c) - (parseInt(a) + parseInt(b)));
 
-        if(remainWords.innerText === 0){
-            alert('There is no new words to practice. Please check Missed Words Practice to practice missed words!');
-            checkBox = document.getElementById('missed-words-practic').checked;
-            if(checkBox){
-                parcticeMissedWords();
-            } else {
-                location.reload();
-            }     
+        let finalRemain = parseInt(document.getElementById('t-remain').innerText);
+        if(finalRemain <= 0){
+            alert('There is no new words to practice. Please check Missed Words Practice to practice missed words!');               
         }
     }
-    
+
+    function checkBox(){
+        let checkBox = document.getElementById('missed-words-practic');
+        let missedWords = parseInt(document.getElementById('t-missed').innerText);
+        checkBox.addEventListener('change', function(){
+                if(checkBox.checked){
+                    if(missedWords <= 0 ){
+                        alert("Oooops!! You have no missed words");
+                        checkBox.checked = false ;                      
+                    }
+                } else if (missedWords > 0) {
+                    practiceMissedWords();                                        
+                }
+            });
+    }
+    checkBox();
     // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
     function nextPair(){
         currentRow++;
@@ -87,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function(){
             articleElement.style.backgroundColor = '';
             question.style.backgroundColor = '';            
             nextPair(); }, 2000);
-            remainCal();                                   
+            remainCal();                                               
         }
     
     // listen to derButton and check the answer with 'der' article and giving feedback to the user.
@@ -120,8 +131,7 @@ document.addEventListener('DOMContentLoaded', function(){
             incrementGreen();          
             } else { articleElement.style.backgroundColor = 'red';
             incrementRed();
-            makeMissedWordsTable();
-        }
+            makeMissedWordsTable();}
             let article = articleList[currentRow];
             displayArticle();                                         
         });       
@@ -138,65 +148,68 @@ document.addEventListener('DOMContentLoaded', function(){
             incrementGreen();           
             } else { articleElement.style.backgroundColor = 'red';
             incrementRed();
-            makeMissedWordsTable();
-        }            
+            makeMissedWordsTable();}            
             let article = articleList[currentRow];
             displayArticle();                                                                              
         });
     }
-
+    // making a new table form missed worrds and storing to the arrays
     function makeMissedWordsTable(){
         let article = document.getElementById('article').innerText;
         let word = document.getElementById('question').innerText;
         let meaning = document.getElementById('eng-meaning').innerText;
 
-        let tbody = document.getElementById('missed-words').innerText;
-        gbodyHTML+=`
-        <dr>
-            <td>${'article'}</td>
-            <td>${'word'}</td>
-            <td>${'meaning'}</td>
-        </dr>
-        `;
+        let tbody = document.getElementById('missed-words');
+        tbody.innerHTML +=`
+        <tr>
+            <td>${article}</td>
+            <td>${word}</td>
+            <td>${meaning}</td>
+        </tr>
+        `;       
     }
+    
+    
+    
+    // practicing missed words by checking the checkbox
+    function practiceMissedWords(){       
+         // getting word from missed-words tbody
+         let mCurrentRow= 0;
+         let mArticleList = [];    
+         let mWordList =[];
+         let mMeaningList = []; 
+    
+         // getting words
+         function word(){
+             let findWord = document.querySelectorAll("#missed-words td:nth-child(2)");   
+             for (i = 0; i < findWord.length; i++){
+             let word = findWord[i].textContent; 
+             mWordList.push(word);       
+             }               
+         }
+         // getting words' meaning
+         function meaning(){ 
+             let findMeaning = document.querySelectorAll("#missed-words td:nth-child(3)");   
+             for (i = 0; i <findMeaning.length; i++){
+             let meaning = findMeaning[i].textContent;
+             mMeaningList.push(meaning);
+             }                     
+         } 
+         // getting article
+         function getArticle(){
+             let findArticle = document.querySelectorAll("#missed-words td:nth-child(1)");        
+             for (let i = 0; i < findArticle.length; i++ ){            
+                 let article = findArticle[i].textContent;
+                 mArticleList.push(article);
+                 }        
+         }       
 
+        let question = document.getElementById('question');
+        question.textContent = mWordList[mCurrentRow];
 
-    function parcticeMissedWords(){
-        // getting word from table
-        let mCurrentRow= 0;
-        let mArticleList = [];    
-        let mWordList =[];
-        let mMeaningList = []; 
-   
-        // getting words
-        function word(){
-            let findWord = document.querySelectorAll("#missed-words td:nth-child(2)");   
-            for (i = 0; i < findWord.length; i++){
-            let word = findWord[i].textContent; 
-            mWordList.push(word);       
-            } 
-            let question = document.getElementById('question');
-            question.textContent = mWordList[currentRow];        
-        }
-        // getting words' meaning
-        function meaning(){ 
-            let findMeaning = document.querySelectorAll("#missed-words td:nth-child(3)");   
-            for (i = 0; i <findMeaning.length; i++){
-            let meaning = findMeaning[i].textContent;
-            mMeaningList.push(meaning);
-            }
-            let engMeaning = document.getElementById('eng-meaning');
-            engMeaning.textContent = mMeaningList[currentRow];           
-        } 
-        // getting article
-        function getArticle(){
-            let findArticle = document.querySelectorAll("#missed-words td:nth-child(1)");        
-            for (let i = 0; i < findArticle.length; i++ ){            
-                let article = findArticle[i].textContent;
-                mArticleList.push(article);
-                }        
-        }
-        
+        let engMeaning = document.getElementById('eng-meaning');
+        engMeaning.textContent = mMeaningList[mCurrentRow];
+
         // score space calculation
         function incrementGreen(){
             let greenBox = parseInt(document.getElementById('t-learned').textContent);
@@ -216,9 +229,9 @@ document.addEventListener('DOMContentLoaded', function(){
         
         // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
         function nextPair(){
-            currentRow++;
-            if (currentRow >= mWordList.length){
-                currentRow = 0;
+            mCurrentRow++;
+            if (mCurrentRow >= mWordList.length){
+                mCurrentRow = 0;
             }
             word();
             meaning();        
@@ -227,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function(){
         // proper article from articleList displayed for 2 seconds and then get back to default and listen to next click.
         function displayArticle(){
             let articleElement = document.getElementById('article');
-            articleElement.textContent = mArticleList[currentRow];
+            articleElement.textContent = mArticleList[mCurrentRow];
             setTimeout(function(){
                 articleElement.textContent = '';
                 articleElement.style.backgroundColor = '';
@@ -240,13 +253,13 @@ document.addEventListener('DOMContentLoaded', function(){
             let articleElement = document.getElementById('article');
             let derButton = document.getElementById('der');                            
             derButton.addEventListener('click', function(){                        
-                let currentArticle = articleList[currentRow];            
+                let currentArticle = articleList[mCurrentRow];            
                 if (currentArticle === 'der'){
                     articleElement.style.backgroundColor = 'green';
                     incrementGreen();
                     dicrementRed();                                                                                                            
                     } else { articleElement.style.backgroundColor = 'red';}                
-                let article = articleList[currentRow];            
+                let article = articleList[mCurrentRow];            
                 displayArticle();                                                               
             });
         }
@@ -257,14 +270,14 @@ document.addEventListener('DOMContentLoaded', function(){
             let articleElement = document.getElementById('article');
             let dieButton = document.getElementById('die');
             dieButton.addEventListener('click', function(){
-                let currentArticle = articleList[currentRow];            
+                let currentArticle = articleList[mCurrentRow];            
                 if (currentArticle === 'die'){
                 articleElement.style.backgroundColor = 'green';
                 incrementGreen();
                 dicrementRed();          
                 } else { articleElement.style.backgroundColor = 'red';
                 }
-                let article = articleList[currentRow];
+                let article = articleList[mCurrentRow];
                 displayArticle();                                         
             });       
         }
@@ -274,23 +287,25 @@ document.addEventListener('DOMContentLoaded', function(){
             let articleElement = document.getElementById('article');
             let dasButton = document.getElementById('das');
             dasButton.addEventListener('click', function(){
-                let currentArticle = articleList[currentRow];            
+                let currentArticle = articleList[mCurrentRow];            
                 if (currentArticle === 'das'){
                 articleElement.style.backgroundColor = 'green';
                 incrementGreen();
                 dicrementRed();            
                 } else { articleElement.style.backgroundColor = 'red';
                 }            
-                let article = articleList[currentRow];
+                let article = articleList[mCurrentRow];
                 displayArticle();                                                                              
             });
         }
-        getArticle();
-        word();
-        meaning();
+        
         derButton();
         dieButton();
         dasButton();
+        getArticle();
+        word();
+        meaning();
+        
     }
 
     getArticle();
@@ -300,6 +315,8 @@ document.addEventListener('DOMContentLoaded', function(){
     dieButton();
     dasButton(); 
     totalWordsCal();
+    
+    
           
 });  
 
