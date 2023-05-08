@@ -64,21 +64,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     }
 
-    function checkBox(){
-        let checkBox = document.getElementById('missed-words-practic');
-        let missedWords = parseInt(document.getElementById('t-missed').innerText);
-        checkBox.addEventListener('change', function(){
-                if(checkBox.checked){
-                    if(missedWords <= 0 ){
-                        alert("Oooops!! You have no missed words");
-                        checkBox.checked = false ;                      
-                    }
-                } else if (missedWords > 0) {
-                    practiceMissedWords();                                        
-                }
-            });
-    }
-    checkBox();
     // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
     function nextPair(){
         currentRow++;
@@ -169,8 +154,18 @@ document.addEventListener('DOMContentLoaded', function(){
         `;       
     }
     
-    
-    
+    function clickOnMissed(){
+        let missedElement = document.getElementById("practice-missed");
+        missedElement.style.cursor = "pointer";
+        missedElement.addEventListener('click', function() {
+            let missedWords = parseInt(document.getElementById('t-missed').innerText);
+            if (missedWords > 0) {
+                practiceMissedWords();
+            }
+        });
+    }
+   
+
     // practicing missed words by checking the checkbox
     function practiceMissedWords(){       
          // getting word from missed-words tbody
@@ -315,6 +310,7 @@ document.addEventListener('DOMContentLoaded', function(){
     dieButton();
     dasButton(); 
     totalWordsCal();
+    clickOnMissed()
     
     
           
