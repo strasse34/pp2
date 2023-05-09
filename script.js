@@ -73,6 +73,27 @@ document.addEventListener('DOMContentLoaded', function(){
         word();
         meaning();        
     }
+
+     // making a new array form missed worrds and meaning
+     function makeMissedWordsArray(){
+        let article = document.getElementById('article').innerText;
+        let word = document.getElementById('question').innerText;
+        let meaning = document.getElementById('eng-meaning').innerText;
+
+        let objectPairArray = [];
+        let articleArray = [];
+
+        objectArray.push({
+            word: word,
+            meaning: meaning,
+        });
+
+        articleArray.push(article);
+
+        console.log(objectPairArray);
+        console.log(articleArray); 
+
+    }
     
     // proper article from articleList displayed for 2 seconds and then get back to default and listen to next click.
     function displayArticle(){
@@ -137,40 +158,21 @@ document.addEventListener('DOMContentLoaded', function(){
             displayArticle();                                                                              
         });
     }
-    // making a new array form missed worrds and meaning
-    function makeMissedWordsArray(){
-        let article = document.getElementById('article').innerText;
-        let word = document.getElementById('question').innerText;
-        let meaning = document.getElementById('eng-meaning').innerText;
-
-        let objectPairArray = [];
-        let articleArray = [];
-
-        objectArray.push({
-            word: word,
-            meaning: meaning,
-        });
-
-        articleArray.push(article);
-
-        console.log(objectPairArray);
-        console.log(articleArray); 
-
-    }
+   
     
 
-    function clickOnMissed(){
-        clickOnMe = document.getElementById('practice-missed');
-        clickOnMe.addEventListener('click', function() {
-            let missedWords = parseInt(document.getElementById('t-missed').innerText);
-            if (missedWords > 0) {
-                Header = document.getElementsByTagName('header');
-                header.style.backgroundColor = 'red';
-                practiceMissedWords();
-            }
-        });
+    // function clickOnMissed(){
+    //     clickOnMe = document.getElementById('practice-missed');
+    //     clickOnMe.addEventListener('click', function() {
+    //         let missedWords = parseInt(document.getElementById('t-missed').innerText);
+    //         if (missedWords > 0) {
+    //             Header = document.getElementsByTagName('header');
+    //             header.style.backgroundColor = 'red';
+    //             practiceMissedWords();
+    //         }
+    //     });
         
-    }
+    // }
    
 
     // practicing missed wordes
@@ -194,6 +196,7 @@ document.addEventListener('DOMContentLoaded', function(){
             alert('Good Job! There is now missed words left');
             location.reload();
         }
+        
         function displayMissedArticle(){
             let articleArray = [];
             let articleIndex = 0;        
@@ -235,9 +238,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (missedArticle === 'der'){
                 articleElement.style.backgroundColor = 'green';
                 greenRedCal()          
-                }                                                                          
+                } else {
+                displayMissedArticle();
+                }                                                                         
             });
-            displayMissedArticle();
+            
         }
         
 
@@ -249,9 +254,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (missedArticle === 'die'){
                 articleElement.style.backgroundColor = 'green';
                 greenRedCal()         
-                }                                                         
+                 } else {
+                displayMissedArticle();
+                }                                                        
             });
-            displayMissedArticle();       
+                   
         }
 
         // listen to dasButton and check the answer with 'der' article and giving feedback to the user.
@@ -262,15 +269,17 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (missedArticle === 'das'){
                 articleElement.style.backgroundColor = 'green';
                 greenRedCal()          
+                } else {
+                displayMissedArticle();
                 }                                                                                             
             });
-            displayMissedArticle();
+            
         }
         
         derButtonM();
         dieButtonM();
         dasButtonM();
-                
+        displayMissedArticle();        
         
     }
 
@@ -281,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function(){
     dieButton();
     dasButton(); 
     totalWordsCal();
-    clickOnMissed();
+   
     
     
           
