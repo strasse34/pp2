@@ -7,15 +7,19 @@ document.addEventListener('DOMContentLoaded', function(){
     dieButton();
     dasButton(); 
     totalWordsCal();
-    practiceMissed()
+    
        
 });  
 
 // getting word, meaning and article from table
 let currentRow= 0;
+let objectIndex = 0; 
+let articleIndex = 0; 
 let articleList = [];    
 let wordList =[];
 let meaningList = []; 
+let missedWordsArray = [];
+let missedArticleArray = [];
 
 
 // getting words
@@ -111,6 +115,7 @@ function derButton(){
             incrementGreen();                                                                                                            
             } else { articleElement.style.backgroundColor = 'red';
             incrementRed();
+            makeMissedWordsArray();
                
         }                        
         displayArticle();                                                               
@@ -128,7 +133,8 @@ function dieButton(){
             articleElement.style.backgroundColor = 'green';
             incrementGreen();          
             } else { articleElement.style.backgroundColor = 'red';
-            incrementRed();            
+            incrementRed();
+            makeMissedWordsArray();            
         }            
         displayArticle();                                         
     });       
@@ -144,22 +150,164 @@ function dasButton(){
             articleElement.style.backgroundColor = 'green';
             incrementGreen();           
             } else { articleElement.style.backgroundColor = 'red';
-            incrementRed();           
+            incrementRed();
+            makeMissedWordsArray();           
         }           
         displayArticle();                                                                              
     });
 }
 
-function practiceMissed(){
-    button = document.getElementById('practice-missed');
+// directing user to practice missed words by clikcing on proper button
+function goToMissedWords(){       
+    let button = document.getElementById('practice-missed');
+    isRed = true;
     button.addEventListener('click' , function(){
-        if (botton.color === 'green' ){
-            botton.color === 'red'
+        let totalMissed = parseInt(document.getElementById('t-missed').innerText);        
+        if (totalMissed !== 0){            
+            if(isRed){        
+                button.style.backgroundColor = 'red';
+                practiceMissedWords()          
+            } else {
+                button.style.backgroundColor = 'aliceblue';
+                return;                                          
+            }
+            isRed = !isRed;
         } else {
-            botton.color === 'green'
-        }
-    })
-}
-   
+            alert("You Have No Missed Words!");
+        }   
+    });
+} 
     
+
+goToMissedWords()
+   
+// collecting the words and meaning which their article has been missed by user.  
+function makeMissedWordsArray(){
+    let article = document.getElementById('article').innerText;
+    let word = document.getElementById('question').innerText;
+    let meaning = document.getElementById('eng-meaning').innerText;
+
+    missedWordsArray.push({
+        word: word,
+        meaning: meaning,
+    });
+
+    missedArticleArray.push(article);
+
+    console.log(missedWordsArray);
+    console.log(missedArticleArray); 
+}
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+// PRACTICING MISSED WORKDS
+
+function practiceMissedWords(){
+    articleElement = document.getElementById('article');
+    questionElement = document.getElementById('question');
+    meaning = document.getElementById('eng-meaning');
+
+    meaning.textContent = '';
+    articleElement.textContent = '';
+    articleElement.style.backgroundColor = '';
+    question.style.backgroundColor = ''; 
+
+    displayMissedWord();
+    greenRedCal();
+    nextMissedPair()
+    derButtonM();
+    dieButtonM();
+    dasButtonM();
+    
+}
+
+
+// Function to display the missed word at the current index
+function displayMissedWord() {        
+if (objectIndex < objectPairArray.length) {        
+    let missedWord = objectPairArray[objectIndex];
+    let questionElement = document.getElementById('question');
+    let engMeaningElement = document.getElementById('eng-meaning');            
+    questionElement.innerText = missedWord.word;
+    engMeaningElement.innerText = missedWord.meaning;
+    } else {            
+    alert('Good Job! There is now missed words left');
+    location.reload();
+}
+
+// listen to derButton and check the answer with 'der' article and giving feedback to the user.
+function derButtonM(){           
+    let derButton = document.getElementById('der');                            
+    derButton.addEventListener('click', function(){
+        let missedArticle = articleArray[articleIndex];            
+        if (missedArticle === 'der'){
+        articleElement.style.backgroundColor = 'green';
+        greenRedCal()          
+        } else {
+        displayMissedArticle();
+        }                                                                         
+    });   
+}
+
+// listen to dieButton and check the answer with 'der' article and giving feedback to the user.
+function dieButtonM(){            
+    let dieButton = document.getElementById('die');
+    dieButton.addEventListener('click', function(){
+        let missedArticle = articleArray[articleIndex];            
+        if (missedArticle === 'die'){
+        articleElement.style.backgroundColor = 'green';
+        greenRedCal()         
+            } else {
+        displayMissedArticle();
+        }                                                        
+    });
+            
+}
+
+// listen to dasButton and check the answer with 'der' article and giving feedback to the user.
+function dasButtonM(){            
+    let dasButton = document.getElementById('das');
+    dasButton.addEventListener('click', function(){
+        let missedArticle = articleArray[articleIndex];            
+        if (missedArticle === 'das'){
+        articleElement.style.backgroundColor = 'green';
+        greenRedCal()          
+        } else {
+        displayMissedArticle();
+        }                                                                                             
+    });
+}
+
+function displayMissedArticle(){           
+    let missedArticle = articleArray[articleIndex];
+    let articleElement = document.getElementById('article');            
+    articleElement.innerText = missedArticle;  
+    setTimeout(function(){
+        articleElement.textContent = '';
+        articleElement.style.backgroundColor = '';
+        question.style.backgroundColor = '';            
+        nextMissedPair(); }, 2000);                                               
+    } 
+}
+
+// score space calculation
+function greenRedCal(){
+    let greenBox = parseInt(document.getElementById('t-learned').textContent);
+    document.getElementById('t-learned').innerText = ++greenBox;
+    let redBox = parseInt(document.getElementById('t-missed').textContent);
+    document.getElementById('t-missed').innerText = --redBox;
+}          
+
+// showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
+function nextMissedPair(){
+    objectIndex++;
+    if (objectIndex >= objectIndex.length){
+        objectIndex = 0;
+    }
+    displayMissedWord();        
+}       
+
+
+
 

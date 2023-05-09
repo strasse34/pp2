@@ -28,7 +28,7 @@ section {
 
 /* game space */
 #game-space {   
-    border-right: 1px solid black;
+    border-right: 2px solid black;    
     width: 70vw;
     display: flex;
     flex-direction: column;
@@ -40,17 +40,19 @@ section {
 #answer-space {    
     display: flex;
     flex-direction: row;    
-    gap: 2rem;
+    gap: 2rem;    
 }
 
 #article {
     width: 75px;    
     text-transform: capitalize;
+    text-align: left !important;
 }
 
 #answer {
     width: 200px;    
     text-transform: capitalize;
+    text-align: left !important;
 }
 
 #eng-meaning {    
@@ -71,9 +73,10 @@ section {
     }
 
 #practice-missed {    
-    font-size: 1rem;
-    color: green;
-    
+    font-size: 1.2rem !important;
+    background-color: aliceblue;       
+    border-radius: 4px;
+    border: 1px solid rgb(63, 58, 58);    
     }
 
 
