@@ -70,9 +70,10 @@ section {
     margin-bottom: 10px;
     }
 
-    #practice-missed {
-        border-top: 1px solid black;
-        font-size: 1.1rem;
+#practice-missed {    
+    font-size: 1rem;
+    color: green;
+    
     }
 
 

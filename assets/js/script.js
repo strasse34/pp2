@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
     dieButton();
     dasButton(); 
     totalWordsCal();
+    practiceMissed()
        
 });  
 
@@ -147,6 +148,17 @@ function dasButton(){
         }           
         displayArticle();                                                                              
     });
+}
+
+function practiceMissed(){
+    button = document.getElementById('practice-missed');
+    button.addEventListener('click' , function(){
+        if (botton.color === 'green' ){
+            botton.color === 'red'
+        } else {
+            botton.color === 'green'
+        }
+    })
 }
    
     
