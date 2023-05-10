@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', function(){
     word();
     meaning();
     getArticle();
-    clickButton();     
+    derClick();     
+    dieClick();     
+    dasClick();     
 });  
 
 // getting word, meaning and article from table
@@ -17,14 +19,6 @@ let missedWordsArray = [];
 let missedArticleArray = [];
 
 // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
-function nextPair(){
-    currentRow++;
-    if (currentRow >= wordList.length){
-        currentRow = 0;
-    }
-    word();
-    meaning();       
-}
 
 // getting words
 function word(){
@@ -85,9 +79,14 @@ function remainCal(){
     }
 }
 
-
-
-
+function nextPair(){
+    currentRow++;
+    if (currentRow >= wordList.length){
+        currentRow = 0;
+    }
+    word();
+    meaning();       
+}
 
 // proper article from articleList displayed for 2 seconds and then get back to default and listen to next click.
 function displayArticle(){
@@ -107,18 +106,54 @@ function displayArticle(){
     }
 
 // listen to derButton and check the answer with 'der' article and giving feedback to the user.
-function clickButton(buttonId){     
-    let articleElement = document.getElementById('article');
-    let currentArticle = articleList[currentRow];    
-        if (currentArticle === buttonId){
-        articleElement.style.backgroundColor = 'green';
-        incrementGreen();                                                                                                            
-        } else { articleElement.style.backgroundColor = 'red';
-        incrementRed();
-        makeMissedWordsArray();
-        console.log(missedArticleArray)               
-        }                        
-        displayArticle();     
+function derClick(){     
+    let articleElement = document.getElementById('article');        
+    let clickDer = document.getElementById('der');
+    clickDer.addEventListener('click', function(){    
+        let currentArticle = articleList[currentRow];
+        if (currentArticle === 'der'){
+            articleElement.style.backgroundColor = 'green';
+            incrementGreen();                                                                                                            
+            } else { articleElement.style.backgroundColor = 'red';
+            incrementRed();
+            makeMissedWordsArray();
+            console.log(missedArticleArray)               
+            }                        
+        displayArticle(); 
+    });    
+}
+
+function dieClick(){     
+    let articleElement = document.getElementById('article');        
+    let clickDie = document.getElementById('die');
+    clickDie.addEventListener('click', function(){    
+        let currentArticle = articleList[currentRow];
+        if (currentArticle === 'die'){
+            articleElement.style.backgroundColor = 'green';
+            incrementGreen();                                                                                                            
+            } else { articleElement.style.backgroundColor = 'red';
+            incrementRed();
+            makeMissedWordsArray();
+            console.log(missedArticleArray)               
+            }                        
+        displayArticle(); 
+    });    
+}
+function dasClick(){     
+    let articleElement = document.getElementById('article');        
+    let clickDas = document.getElementById('das');
+    clickDas.addEventListener('click', function(){
+        let currentArticle = articleList[currentRow];    
+        if (currentArticle === 'das'){
+            articleElement.style.backgroundColor = 'green';
+            incrementGreen();                                                                                                            
+            } else { articleElement.style.backgroundColor = 'red';
+            incrementRed();
+            makeMissedWordsArray();
+            console.log(missedArticleArray)               
+            }                        
+        displayArticle(); 
+    });    
 }
 
 // directing user to practice missed words by clikcing on proper button
@@ -263,7 +298,7 @@ if (objectIndex < missedWordsArray.length) {
     questionElement.innerText = missedWord.word;
     engMeaningElement.innerText = missedWord.meaning;
     } else {            
-    alert('Good Job! There is now missed words left');
+    alert('Good Job! There is no missed words left');
     location.reload();
     }
 }
