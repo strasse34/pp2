@@ -91,12 +91,7 @@ function nextPair(){
 // proper article from articleList displayed for 2 seconds and then get back to default and listen to next click.
 function displayArticle(){
     let articleElement = document.getElementById('article');
-    articleElement.textContent = articleList[currentRow];
-    
-    let article = document.getElementById('article').innerText;
-    missedArticleArray.push(article);
-    console.log(missedArticleArray);
-    
+    articleElement.textContent = articleList[currentRow];    
     setTimeout(function(){
         articleElement.textContent = '';
         articleElement.style.backgroundColor = '';
@@ -110,14 +105,15 @@ function derClick(){
     let articleElement = document.getElementById('article');        
     let clickDer = document.getElementById('der');
     clickDer.addEventListener('click', function(){    
-        let currentArticle = articleList[currentRow];
+        let currentArticle = articleList[currentRow];        
         if (currentArticle === 'der'){
             articleElement.style.backgroundColor = 'green';
             incrementGreen();                                                                                                            
             } else { articleElement.style.backgroundColor = 'red';
-            incrementRed();
-            makeMissedWordsArray();
-            console.log(missedArticleArray)               
+            missedArticleArray.push(currentArticle);
+            console.log(missedArticleArray);
+            incrementRed();           
+            makeMissedWordsArray();                          
             }                        
         displayArticle(); 
     });    
@@ -132,9 +128,10 @@ function dieClick(){
             articleElement.style.backgroundColor = 'green';
             incrementGreen();                                                                                                            
             } else { articleElement.style.backgroundColor = 'red';
+            missedArticleArray.push(currentArticle);
+            console.log(missedArticleArray);
             incrementRed();
-            makeMissedWordsArray();
-            console.log(missedArticleArray)               
+            makeMissedWordsArray();                           
             }                        
         displayArticle(); 
     });    
@@ -148,9 +145,10 @@ function dasClick(){
             articleElement.style.backgroundColor = 'green';
             incrementGreen();                                                                                                            
             } else { articleElement.style.backgroundColor = 'red';
+            missedArticleArray.push(currentArticle);
+            console.log(missedArticleArray);
             incrementRed();
-            makeMissedWordsArray();
-            console.log(missedArticleArray)               
+            makeMissedWordsArray();                           
             }                        
         displayArticle(); 
     });    
@@ -189,9 +187,7 @@ function makeMissedWordsArray(){
     missedWordsArray.push({        
         word: word,
         meaning: meaning,
-    });   
-
-    console.log(missedWordsArray);    
+    });     
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -200,34 +196,22 @@ function makeMissedWordsArray(){
 // PRACTICING MISSED WORKDS
 
 function practiceMissedWords(){
-    articleElement = document.getElementById('article');
-    questionElement = document.getElementById('question');
-    meaningElement = document.getElementById('eng-meaning');
-
-    meaningElement.textContent = '';
-    articleElement.textContent = '';
-    articleElement.style.backgroundColor = '';
-    question.style.backgroundColor = '';    
-
-    displayMissedWord();
-    displayMissedArticle();
-    console.log(missedWordsArray); 
-    console.log(missedArticleArray);      
+    displayMissedWord();              
     derButton();    
     dieButton();    
     dasButton();    
 }
 
 // score space calculation
-function greenRedCal(){
-    let greenBox = parseInt(document.getElementById('t-learned').innerText);
-    greenBox++;
-    document.getElementById('t-learned').innerText = greenBox;
-    let redBox = parseInt(document.getElementById('t-missed').innerText);
-    redBox--;
-    document.getElementById('t-missed').innerText = redBox;
+function greenPlus(){
+    let greenBox = parseInt(document.getElementById('t-learned').textContent);
+    document.getElementById('t-learned').innerText = ++greenBox;
+}
 
-}          
+function redMinus(){
+    let redBox = parseInt(document.getElementById('t-missed').textContent);
+    document.getElementById('t-missed').innerText = --redBox;
+}
 
 // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
 function nextMissedPair(){
@@ -252,40 +236,44 @@ function displayMissedArticle(){
 
 // defining button der, die and das in missed words 
 function derButton(){           
-    let derButton = document.getElementById('der');                            
+    let derButton = document.getElementById('der');
+    articleElement = document.getElementById('article');                            
     derButton.addEventListener('click', function(){
-        let missedArticle = missedArticleArray[articleIndex];            
-        if (missedArticle === 'der'){
+        let missedArticle = missedArticleArray[articleIndex];         
+        if (missedArticle === 'Der'){
         articleElement.style.backgroundColor = 'green';
-        greenRedCal()          
-        } else {
-        displayMissedArticle();
-        }                                                                         
+        redMinus();
+        greenPlus();        
+        console.log(missedArticleArray);                          
+        } 
+        displayMissedArticle();                                                                            
     });    
 }
 
 function dieButton(){           
-    let dieButton = document.getElementById('die');                            
+    let dieButton = document.getElementById('die'); 
+    articleElement = document.getElementById('article');                           
     dieButton.addEventListener('click', function(){
         let missedArticle = missedArticleArray[articleIndex];            
-        if (missedArticle === 'die'){
+        if (missedArticle === 'Die'){
         articleElement.style.backgroundColor = 'green';
-        greenRedCal()          
-        } else {
-        displayMissedArticle();
-        }                                                                         
+        redMinus();
+        greenPlus();                        
+        } 
+        displayMissedArticle();                                                                        
     });    
 }
 function dasButton(){           
-    let dasButton = document.getElementById('das');                            
+    let dasButton = document.getElementById('das'); 
+    articleElement = document.getElementById('article');                           
     dasButton.addEventListener('click', function(){
         let missedArticle = missedArticleArray[articleIndex];            
-        if (missedArticle === 'das'){
+        if (missedArticle === 'Das'){
         articleElement.style.backgroundColor = 'green';
-        greenRedCal()          
-        } else {
-        displayMissedArticle();
-        }                                                                         
+        redMinus();
+        greenPlus();                       
+        } 
+        displayMissedArticle();                                                                        
     });    
 }
 
@@ -297,6 +285,7 @@ if (objectIndex < missedWordsArray.length) {
     let engMeaningElement = document.getElementById('eng-meaning');            
     questionElement.innerText = missedWord.word;
     engMeaningElement.innerText = missedWord.meaning;
+    
     } else {            
     alert('Good Job! There is no missed words left');
     location.reload();
