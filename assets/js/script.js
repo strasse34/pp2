@@ -3,9 +3,8 @@ document.addEventListener('DOMContentLoaded', function(){
     word();
     meaning();
     getArticle();
-    derButton();
-    dieButton();
-    dasButton(); 
+    clickButton(buttonId);
+    
      
 });  
 
@@ -108,58 +107,22 @@ function displayArticle(){
     }
 
 // listen to derButton and check the answer with 'der' article and giving feedback to the user.
-function derButton(){     
+function clickButton(buttonId){     
     let articleElement = document.getElementById('article');
-    let derButton = document.getElementById('der');                            
-    derButton.addEventListener('click', function(){                        
-        let currentArticle = articleList[currentRow];            
-        if (currentArticle === 'der'){
-            articleElement.style.backgroundColor = 'green';
-            incrementGreen();                                                                                                            
-            } else { articleElement.style.backgroundColor = 'red';
-            incrementRed();
-            makeMissedWordsArray();
-            console.log(missedArticleArray)
-               
+    let currentArticle = articleList[currentRow];    
+        if (currentArticle === buttonId){
+        articleElement.style.backgroundColor = 'green';
+        incrementGreen();                                                                                                            
+        } else { articleElement.style.backgroundColor = 'red';
+        incrementRed();
+        makeMissedWordsArray();
+        console.log(missedArticleArray)               
         }                        
-        displayArticle();                                                               
-    });
+        displayArticle();     
 }
 
 
-// listen to dieButton and check the answer with 'der' article and giving feedback to the user.
-function dieButton(){
-    let articleElement = document.getElementById('article');
-    let dieButton = document.getElementById('die');
-    dieButton.addEventListener('click', function(){
-        let currentArticle = articleList[currentRow];            
-        if (currentArticle === 'die'){
-            articleElement.style.backgroundColor = 'green';
-            incrementGreen();          
-            } else { articleElement.style.backgroundColor = 'red';
-            incrementRed();
-            makeMissedWordsArray();            
-        }            
-        displayArticle();                                         
-    });       
-}
 
-// listen to dasButton and check the answer with 'der' article and giving feedback to the user.
-function dasButton(){
-    let articleElement = document.getElementById('article');
-    let dasButton = document.getElementById('das');
-    dasButton.addEventListener('click', function(){
-        let currentArticle = articleList[currentRow];            
-        if (currentArticle === 'das'){
-            articleElement.style.backgroundColor = 'green';
-            incrementGreen();           
-            } else { articleElement.style.backgroundColor = 'red';
-            incrementRed();
-            makeMissedWordsArray();           
-        }           
-        displayArticle();                                                                              
-    });
-}
 
 // directing user to practice missed words by clikcing on proper button
 function goToMissedWords(){       
