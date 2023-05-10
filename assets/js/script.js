@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
     word();
     meaning();
     getArticle();
-    clickButton();
-    
-     
+    clickButton();     
 });  
 
 // getting word, meaning and article from table
@@ -18,6 +16,15 @@ let meaningList = [];
 let missedWordsArray = [];
 let missedArticleArray = [];
 
+// showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
+function nextPair(){
+    currentRow++;
+    if (currentRow >= wordList.length){
+        currentRow = 0;
+    }
+    word();
+    meaning();       
+}
 
 // getting words
 function word(){
@@ -34,12 +41,13 @@ function word(){
 // getting words' meaning
 function meaning(){ 
     let findMeaning = document.querySelectorAll("#ent-words td:nth-child(3)");   
-    for (i = 0; i <findMeaning.length; i++){
+    for (i = 0; i < findMeaning.length; i++){
     let meaning = findMeaning[i].textContent;
     meaningList.push(meaning);
     }
     let engMeaning = document.getElementById('eng-meaning');
-    engMeaning.textContent = meaningList[currentRow];           
+    engMeaning.textContent = meaningList[currentRow]; 
+             
 } 
 // getting article
 function getArticle(){
@@ -77,15 +85,7 @@ function remainCal(){
     }
 }
 
-// showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
-function nextPair(){
-    currentRow++;
-    if (currentRow >= wordList.length){
-        currentRow = 0;
-    }
-    word();
-    meaning();        
-}
+
 
 
 
@@ -130,7 +130,7 @@ function goToMissedWords(){
         if (totalMissed !== 0){            
             if(isRed){        
                 button.style.backgroundColor = 'red';
-                practiceMissedWords()          
+                practiceMissedWords();          
             } else {
                 button.style.backgroundColor = 'aliceblue';
                 return;                                          
@@ -167,14 +167,17 @@ function makeMissedWordsArray(){
 function practiceMissedWords(){
     articleElement = document.getElementById('article');
     questionElement = document.getElementById('question');
-    meaning = document.getElementById('eng-meaning');
+    meaningElement = document.getElementById('eng-meaning');
 
-    meaning.textContent = '';
+    meaningElement.textContent = '';
     articleElement.textContent = '';
     articleElement.style.backgroundColor = '';
     question.style.backgroundColor = '';    
 
-    displayMissedWord();       
+    displayMissedWord();
+    displayMissedArticle();
+    console.log(missedWordsArray); 
+    console.log(missedArticleArray);      
     derButton();    
     dieButton();    
     dasButton();    
@@ -183,9 +186,12 @@ function practiceMissedWords(){
 // score space calculation
 function greenRedCal(){
     let greenBox = parseInt(document.getElementById('t-learned').innerText);
-    greenBox = ++greenBox;
+    greenBox++;
+    document.getElementById('t-learned').innerText = greenBox;
     let redBox = parseInt(document.getElementById('t-missed').innerText);
-    redBox = --redBox;
+    redBox--;
+    document.getElementById('t-missed').innerText = redBox;
+
 }          
 
 // showing next 'word' and 'meaning' after previous 'word' and 'meaning' checked. 
@@ -210,7 +216,7 @@ function displayMissedArticle(){
     } 
 
 // defining button der, die and das in missed words 
-function derButton(missedArticleArray){           
+function derButton(){           
     let derButton = document.getElementById('der');                            
     derButton.addEventListener('click', function(){
         let missedArticle = missedArticleArray[articleIndex];            
@@ -223,7 +229,7 @@ function derButton(missedArticleArray){
     });    
 }
 
-function dieButton(missedArticleArray){           
+function dieButton(){           
     let dieButton = document.getElementById('die');                            
     dieButton.addEventListener('click', function(){
         let missedArticle = missedArticleArray[articleIndex];            
@@ -235,7 +241,7 @@ function dieButton(missedArticleArray){
         }                                                                         
     });    
 }
-function dasButton(missedArticleArray){           
+function dasButton(){           
     let dasButton = document.getElementById('das');                            
     dasButton.addEventListener('click', function(){
         let missedArticle = missedArticleArray[articleIndex];            
