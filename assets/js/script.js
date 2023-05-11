@@ -18,7 +18,7 @@ let meaningList = [];
 let missedWordsArray = [];
 
 
-// getting words
+// getting words from html
 function word(){
     let findWord = document.querySelectorAll("#ent-words td:nth-child(2)");   
     for (i = 0; i < findWord.length; i++){
@@ -30,7 +30,7 @@ function word(){
     let totalWord = document.getElementById('t-words');
     totalWord.innerText = findWord.length;
 }
-// getting words' meaning
+// getting words' meaning from html
 function meaning(){ 
     let findMeaning = document.querySelectorAll("#ent-words td:nth-child(3)");   
     for (i = 0; i < findMeaning.length; i++){
@@ -41,7 +41,7 @@ function meaning(){
     engMeaning.textContent = meaningList[currentRow]; 
              
 } 
-// getting article
+// getting article from html
 function getArticle(){
     let findArticle = document.querySelectorAll("#ent-words td:nth-child(1)");        
     for (let i = 0; i < findArticle.length; i++ ){            
@@ -89,6 +89,7 @@ function nextPair(){
 
 // proper article from articleList displayed for 2 seconds and then get back to default and listen to next click.
 function displayArticle(){ 
+    let button = document.getElementById('practice-missed');
     let clickDer = document.getElementById('der');        
     let clickDie = document.getElementById('die');
     let clickDas = document.getElementById('das');   
@@ -100,19 +101,22 @@ function displayArticle(){
         question.style.backgroundColor = '';        
         clickDer.disabled = false;            
         clickDie.disabled = false;            
-        clickDas.disabled = false;            
+        clickDas.disabled = false;
+        button.disabled = false;           
         nextPair(); }, 2000);
         remainCal();                                 
     }
 
 // disabling event listening of clicks on buttons to prevent unexpected click
 function clicksDisabled(){
+    let button = document.getElementById('practice-missed');
     let clickDer = document.getElementById('der');        
     let clickDie = document.getElementById('die');
     let clickDas = document.getElementById('das');
     clickDer.disabled = true;
     clickDie.disabled = true;
-    clickDas.disabled = true; 
+    clickDas.disabled = true;
+    button.disabled = true; 
 }
 
 // listen to derButton and check the answer with 'der' article and giving feedback to the user.
@@ -218,7 +222,7 @@ function goToMissedWords(){
             } else {
                 button.style.backgroundColor = 'aliceblue';
                 ClicksOnButtonOff()
-                return;                                          
+                nextPair();                                          
             }
             isRed = !isRed;
         } else {
@@ -278,6 +282,7 @@ function nextMissedPair(){
 
 // displaying correct article after receiving response from user.
 function displayMissedArticle(){
+    let button = document.getElementById('practice-missed');
     let derButton = document.getElementById('mder');           
     let dieButton = document.getElementById('mdie');           
     let dasButton = document.getElementById('mdas');           
@@ -291,17 +296,20 @@ function displayMissedArticle(){
         derButton.disabled = false;
         dieButton.disabled = false;
         dasButton.disabled = false;
+        button.disabled = false;
         nextMissedPair(); }, 2000);                                               
     } 
 
 // disabling event listening of clicks on buttons to prevent unexpected click
 function buttonsDisabled(){
+    let button = document.getElementById('practice-missed');
     let derButton = document.getElementById('mder');           
     let dieButton = document.getElementById('mdie');           
     let dasButton = document.getElementById('mdas');
     derButton.disabled = true;
     dieButton.disabled = true;
     dasButton.disabled = true;
+    button.disabled = true;
 }
 
 // defining button der, die and das in missed words 
@@ -380,6 +388,6 @@ if (objectIndex < missedWordsArray.length) {
     } else {            
     alert('Good Job! There is no missed words left');
     ClicksOnButtonOff()   
-    location.reload();
+    nextPair();
     }
 }
