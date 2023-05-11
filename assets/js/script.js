@@ -84,14 +84,15 @@ function remainCal(){
 function nextPair(){
     let finalRemain = parseInt(document.getElementById('t-remain').innerText);
     let totalMissed = parseInt(document.getElementById('t-missed').innerText);
+    let greenBox = parseInt(document.getElementById('t-learned').textContent); 
     if(finalRemain > 0){
         currentRow++;
         showingWordsAndMeaning();
     } else {
         if(totalMissed > 0){
             alert('There is no new words to practice. Please practice Missed Words!');
-        } else {            
-            alert('You have done all the words correctly.');
+        } else { 
+            alert('Congratulation!! You have learned ' + greenBox + ' words.');
             location.reload();
         }
     }       
