@@ -87,62 +87,78 @@ function nextPair(){
 }
 
 // proper article from articleList displayed for 2 seconds and then get back to default and listen to next click.
-function displayArticle(){
+function displayArticle(){ 
+    let clickDer = document.getElementById('der');        
+    let clickDie = document.getElementById('die');
+    let clickDas = document.getElementById('das');   
     let articleElement = document.getElementById('article');
     articleElement.textContent = articleList[currentRow];    
     setTimeout(function(){
         articleElement.textContent = '';
         articleElement.style.backgroundColor = '';
-        question.style.backgroundColor = '';            
+        question.style.backgroundColor = '';        
+        clickDer.disabled = false;            
+        clickDie.disabled = false;            
+        clickDas.disabled = false;            
         nextPair(); }, 2000);
-        remainCal();                                               
+        remainCal();
+                                                       
     }
 
 // listen to derButton and check the answer with 'der' article and giving feedback to the user.
 function derClick(){     
     let articleElement = document.getElementById('article');        
-    let clickDer = document.getElementById('der');
-    clickDer.addEventListener('click', function(){    
+    let clickDer = document.getElementById('der');    
+    clickDer.addEventListener('click', function(){
+        clickDer.disabled = true;           
         let currentArticle = articleList[currentRow];        
         if (currentArticle === 'der'){
             articleElement.style.backgroundColor = 'green';
-            incrementGreen();                                                                                                            
+            incrementGreen();
+            displayArticle();                                                                                                             
             } else { articleElement.style.backgroundColor = 'red';            
-            incrementRed();           
-            makeMissedWordsArray();                          
-            }                        
-        displayArticle(); 
-    });    
+            incrementRed();
+            displayArticle();            
+            makeMissedWordsArray(); 
+            console.log(missedWordsArray);                         
+            }       
+    });       
 }
 
 function dieClick(){     
     let articleElement = document.getElementById('article');        
     let clickDie = document.getElementById('die');
-    clickDie.addEventListener('click', function(){    
+    clickDie.addEventListener('click', function(){
+        clickDie.disabled = true;    
         let currentArticle = articleList[currentRow];
         if (currentArticle === 'die'){
             articleElement.style.backgroundColor = 'green';
-            incrementGreen();                                                                                                            
+            incrementGreen();
+            displayArticle();                                                                                                            
             } else { articleElement.style.backgroundColor = 'red';            
             incrementRed();
-            makeMissedWordsArray();                           
-            }                        
-        displayArticle(); 
+            displayArticle();
+            makeMissedWordsArray();
+            console.log(missedWordsArray);                           
+            }        
     });    
 }
 function dasClick(){     
     let articleElement = document.getElementById('article');        
     let clickDas = document.getElementById('das');
     clickDas.addEventListener('click', function(){
+        clickDas.disabled = true;
         let currentArticle = articleList[currentRow];    
         if (currentArticle === 'das'){
             articleElement.style.backgroundColor = 'green';
-            incrementGreen();                                                                                                            
+            incrementGreen();
+            displayArticle();                                                                                                            
             } else { articleElement.style.backgroundColor = 'red';            
             incrementRed();
-            makeMissedWordsArray();                           
-            }                        
-        displayArticle(); 
+            displayArticle();
+            makeMissedWordsArray();
+            console.log(missedWordsArray);                           
+            }         
     });    
 }
 
@@ -190,36 +206,35 @@ function makeMissedWordsArray(){
 ////////////////////////////////////////////////////////////////////////////////////////
 // PRACTICING MISSED WORKDS
 
-function practiceMissedWords(){
-    removeButtonClickListeners()    
+function practiceMissedWords(){        
     displayMissedWord();              
     derButton();    
     dieButton();    
     dasButton();    
 }
 
-// activate and deactivate of der,die, dasClickListener
-function addButtonClickListeners() {
-    let derButton = document.getElementById('der');
-    derButton.addEventListener('click', derClick);
+// // activate and deactivate of der,die, dasClickListener
+// function addButtonClickListeners() {
+//     let derButton = document.getElementById('der');
+//     derButton.addEventListener('click', derClick);
   
-    let dieButton = document.getElementById('die');
-    dieButton.addEventListener('click', dieClick);
+//     let dieButton = document.getElementById('die');
+//     dieButton.addEventListener('click', dieClick);
   
-    let dasButton = document.getElementById('das');
-    dasButton.addEventListener('click', dasClick);
-  }
+//     let dasButton = document.getElementById('das');
+//     dasButton.addEventListener('click', dasClick);
+//   }
   
-  function removeButtonClickListeners() {
-    let derButton = document.getElementById('der');
-    derButton.removeEventListener('click', derClick);
+//   function removeButtonClickListeners() {
+//     let derButton = document.getElementById('der');
+//     derButton.removeEventListener('click', derClick);
   
-    let dieButton = document.getElementById('die');
-    dieButton.removeEventListener('click', dieClick);
+//     let dieButton = document.getElementById('die');
+//     dieButton.removeEventListener('click', dieClick);
   
-    let dasButton = document.getElementById('das');
-    dasButton.removeEventListener('click', dasClick);
-  }
+//     let dasButton = document.getElementById('das');
+//     dasButton.removeEventListener('click', dasClick);
+//   }
 
 
 // score space calculation
@@ -243,14 +258,20 @@ function nextMissedPair(){
 }  
 
 // displaying correct article after receiving response from user.
-function displayMissedArticle(){           
-    let missedArticle = missedArray[articleIndex];
+function displayMissedArticle(){
+    let derButton = document.getElementById('der');           
+    let dieButton = document.getElementById('die');           
+    let dasButton = document.getElementById('das');           
+    let missedArticle = missedWordsArray[objectIndex].article;
     let articleElement = document.getElementById('article');            
     articleElement.innerText = missedArticle;  
     setTimeout(function(){
         articleElement.textContent = '';
         articleElement.style.backgroundColor = '';
-        question.style.backgroundColor = '';            
+        question.style.backgroundColor = '';
+        derButton.disabled = false;
+        dieButton.disabled = false;
+        dasButton.disabled = false;
         nextMissedPair(); }, 2000);                                               
     } 
 
@@ -259,6 +280,7 @@ function derButton(){
     let derButton = document.getElementById('der');
     let articleElement = document.getElementById('article');                            
     derButton.addEventListener('click', function(){
+        derButton.disabled = true;
         let missedArticle = missedWordsArray[objectIndex].article;
         console.log(missedArticle);         
         if (missedArticle === 'der'){
@@ -274,6 +296,7 @@ function dieButton(){
     let dieButton = document.getElementById('die'); 
     let articleElement = document.getElementById('article');                           
     dieButton.addEventListener('click', function(){
+        dieButton.disabled = true;
         let missedArticle = missedWordsArray[objectIndex].article;            
         if (missedArticle === 'die'){
         articleElement.style.backgroundColor = 'green';
@@ -287,6 +310,7 @@ function dasButton(){
     let dasButton = document.getElementById('das'); 
     let articleElement = document.getElementById('article');                           
     dasButton.addEventListener('click', function(){
+        dasButton.disabled = true;
         let missedArticle = missedWordsArray[objectIndex].article;           
         if (missedArticle === 'das'){
         articleElement.style.backgroundColor = 'green';
