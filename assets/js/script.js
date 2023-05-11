@@ -3,9 +3,11 @@ document.addEventListener('DOMContentLoaded', function(){
     word();
     meaning();
     getArticle();
+    ClicksOnButtonOff()
     derClick();     
     dieClick();     
-    dasClick();     
+    dasClick(); 
+        
 });  
 
 // getting word, meaning and article from table
@@ -106,10 +108,12 @@ function displayArticle(){
     }
 
 // listen to derButton and check the answer with 'der' article and giving feedback to the user.
-function derClick(){     
+function derClick(){ 
+        
     let articleElement = document.getElementById('article');        
     let clickDer = document.getElementById('der');    
     clickDer.addEventListener('click', function(){
+        console.log('????????');
         clickDer.disabled = true;           
         let currentArticle = articleList[currentRow];        
         if (currentArticle === 'der'){
@@ -162,6 +166,36 @@ function dasClick(){
     });    
 }
 
+function clicksOffButtonOn(){
+    let clickDer = document.getElementById('der');        
+    let clickDie = document.getElementById('die');
+    let clickDas = document.getElementById('das');
+    clickDer.style.display = 'None';
+    clickDie.style.display = 'None';
+    clickDas.style.display = 'None';
+    let derButton = document.getElementById('mder');        
+    let dieButton = document.getElementById('mdie');
+    let dasButton = document.getElementById('mdas');
+    derButton.style.display = 'inline-flex';
+    dieButton.style.display = 'inline-flex';
+    dasButton.style.display = 'inline-flex';
+}
+
+function ClicksOnButtonOff(){
+    let derButton = document.getElementById('mder');        
+    let dieButton = document.getElementById('mdie');
+    let dasButton = document.getElementById('mdas');
+    derButton.style.display = 'None';
+    dieButton.style.display = 'None';
+    dasButton.style.display = 'None';
+    let clickDer = document.getElementById('der');        
+    let clickDie = document.getElementById('die');
+    let clickDas = document.getElementById('das');
+    clickDer.style.display = 'inline-flex';
+    clickDie.style.display = 'inline-flex';
+    clickDas.style.display = 'inline-flex';
+}
+
 // directing user to practice missed words by clikcing on proper button
 function goToMissedWords(){       
     let button = document.getElementById('practice-missed');
@@ -171,9 +205,11 @@ function goToMissedWords(){
         if (totalMissed !== 0){            
             if(isRed){        
                 button.style.backgroundColor = 'red';
+                clicksOffButtonOn();
                 practiceMissedWords();          
             } else {
                 button.style.backgroundColor = 'aliceblue';
+                ClicksOnButtonOff()
                 return;                                          
             }
             isRed = !isRed;
@@ -206,7 +242,8 @@ function makeMissedWordsArray(){
 ////////////////////////////////////////////////////////////////////////////////////////
 // PRACTICING MISSED WORKDS
 
-function practiceMissedWords(){        
+function practiceMissedWords(){
+           
     displayMissedWord();              
     derButton();    
     dieButton();    
@@ -239,12 +276,14 @@ function practiceMissedWords(){
 
 // score space calculation
 function greenPlus(){
-    let greenBox = parseInt(document.getElementById('t-learned').textContent);
+    console.log('green plus');
+    let greenBox = parseInt(document.getElementById('t-learned').innerText);
     document.getElementById('t-learned').innerText = ++greenBox;
 }
 
 function redMinus(){
-    let redBox = parseInt(document.getElementById('t-missed').textContent);
+    console.log('red minus');
+    let redBox = parseInt(document.getElementById('t-missed').innerText);
     document.getElementById('t-missed').innerText = --redBox;
 }
 
@@ -259,9 +298,9 @@ function nextMissedPair(){
 
 // displaying correct article after receiving response from user.
 function displayMissedArticle(){
-    let derButton = document.getElementById('der');           
-    let dieButton = document.getElementById('die');           
-    let dasButton = document.getElementById('das');           
+    let derButton = document.getElementById('mder');           
+    let dieButton = document.getElementById('mdie');           
+    let dasButton = document.getElementById('mdas');           
     let missedArticle = missedWordsArray[objectIndex].article;
     let articleElement = document.getElementById('article');            
     articleElement.innerText = missedArticle;  
@@ -276,47 +315,56 @@ function displayMissedArticle(){
     } 
 
 // defining button der, die and das in missed words 
-function derButton(){               
-    let derButton = document.getElementById('der');
+function derButton(){
+    let derButton = document.getElementById('mder');
     let articleElement = document.getElementById('article');                            
     derButton.addEventListener('click', function(){
+        console.log('gooooooooooooood'); 
         derButton.disabled = true;
         let missedArticle = missedWordsArray[objectIndex].article;
         console.log(missedArticle);         
-        if (missedArticle === 'der'){
+        if (missedArticle === 'Der'){
         articleElement.style.backgroundColor = 'green';
         redMinus();
         greenPlus();                                 
-        } 
+        } else {
+            articleElement.style.backgroundColor = 'red'; 
+        }
         displayMissedArticle();                                                                            
     });    
 }
 
-function dieButton(){           
-    let dieButton = document.getElementById('die'); 
+function dieButton(){ 
+    
+    let dieButton = document.getElementById('mdie'); 
     let articleElement = document.getElementById('article');                           
     dieButton.addEventListener('click', function(){
         dieButton.disabled = true;
         let missedArticle = missedWordsArray[objectIndex].article;            
-        if (missedArticle === 'die'){
+        if (missedArticle === 'Die'){
         articleElement.style.backgroundColor = 'green';
         redMinus();
         greenPlus();                        
-        } 
+        } else {
+            articleElement.style.backgroundColor = 'red'; 
+        }
         displayMissedArticle();                                                                        
     });    
 }
-function dasButton(){           
-    let dasButton = document.getElementById('das'); 
+function dasButton(){
+               
+    let dasButton = document.getElementById('mdas'); 
     let articleElement = document.getElementById('article');                           
     dasButton.addEventListener('click', function(){
         dasButton.disabled = true;
         let missedArticle = missedWordsArray[objectIndex].article;           
-        if (missedArticle === 'das'){
+        if (missedArticle === 'Das'){
         articleElement.style.backgroundColor = 'green';
         redMinus();
         greenPlus();                       
-        } 
+        } else {
+            articleElement.style.backgroundColor = 'red'; 
+        }
         displayMissedArticle();                                                                        
     });    
 }
@@ -332,7 +380,8 @@ if (objectIndex < missedWordsArray.length) {
     engMeaningElement.innerText = missedMeaning;
     
     } else {            
-    alert('Good Job! There is no missed words left');    
+    alert('Good Job! There is no missed words left');
+    ClicksOnButtonOff()   
     location.reload();
     }
 }
