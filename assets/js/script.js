@@ -105,7 +105,8 @@ function displayArticle(){
     let clickDie = document.getElementById('die');
     let clickDas = document.getElementById('das');   
     let articleElement = document.getElementById('article');
-    articleElement.textContent = articleList[currentRow];    
+    articleElement.textContent = articleList[currentRow]; 
+    showLastSet();    
     setTimeout(function(){
         articleElement.textContent = '';
         articleElement.style.backgroundColor = '';
@@ -113,7 +114,8 @@ function displayArticle(){
         clickDer.disabled = false;            
         clickDie.disabled = false;            
         clickDas.disabled = false;
-        button.disabled = false;           
+        button.disabled = false;
+                  
         nextPair(); }, 2000);
         remainCal();                                 
     }
@@ -307,7 +309,8 @@ function displayMissedArticle(){
     let dasButton = document.getElementById('mdas');           
     let missedArticle = missedWordsArray[objectIndex].article;
     let articleElement = document.getElementById('article');            
-    articleElement.innerText = missedArticle;  
+    articleElement.innerText = missedArticle; 
+    showLastSet(); 
     setTimeout(function(){
         articleElement.textContent = '';
         articleElement.style.backgroundColor = '';
@@ -400,4 +403,18 @@ function displayMissedWord() {
     let engMeaningElement = document.getElementById('eng-meaning');            
     questionElement.innerText = missedWord;
     engMeaningElement.innerText = missedMeaning;
+}
+
+// getting words' set and show in the review space
+function showLastSet(){
+    let article = document.getElementById('article').innerText;
+    let question = document.getElementById('question').innerText;     
+    let engMeaning = document.getElementById('eng-meaning').innerText;
+    let lastArticle = document.getElementById('last-article');
+    let lastWord = document.getElementById('last-question');
+    let lastMeaning = document.getElementById('last-meaning');
+
+    lastArticle.innerText = article;
+    lastWord.innerText = question;
+    lastMeaning.innerText = engMeaning;
 }
