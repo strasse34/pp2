@@ -78,12 +78,11 @@ So online education centers can offer their courses and training on the website.
 - Lighthouse in Developer Tools <br>
 ![Lighthouse Scores](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/lighthouse.png) 
 - HTML Validator
-  - 12 errors and warning were returned when passing through the official [W3C validator]https://validator.w3.org/nu/?doc=https%3A%2F%2Fstrasse34.github.io%2Ffirst-project%2Findex.html). I fixed all the errors but could not fix all the warnings due to shortage of the time. I just fixed one of the warnings and it effected the Login part in Navbar in smaller screen below 720px. 
+  - 4 warnings were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-maths%2F#textarea). The warnings were about not using h1 headers in sections. It suggested to use h2 instead but I prefer to use them. 
 - CSS Validator
-  - 2 errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fstrasse34.github.io%2Ffirst-project%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en). Unfortunatelly I couldnot fix the error due time shortage.
-  - I would like to mention that, I test both HTML and CSS before deployment and got nothing. But after deployment I got many errors.
+  - No error were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator).
 - jshint
-  - I got bellow reply in [jshint] (https://jshint.com/) at the first check.
+  - I got bellow returns when passing through the offiial [jshint] (https://jshint.com/) at the first check. I fixed all the warnings and undefined variables in the file and they dispeared.
     There are 38 functions in this file.
     Function with the largest signature take 0 arguments, while the median is 0.
     Largest function has 12 statements in it, while the median is 7.5.
@@ -106,7 +105,8 @@ So online education centers can offer their courses and training on the website.
         239	isRed
         243	isRed
         253	isRed
-        253	isRed 
+        253	isRed
+     
 ### Unfixed Bugs
 There is an error while validating in W3C. I tried with Microsoft Edge too and got the same error. I explored the internet and found out that there is a problem with Github. Github is working on it at this moment.  
 ## Deployment
