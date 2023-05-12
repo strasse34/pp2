@@ -7,80 +7,30 @@ In the German language, "der," "die," and "das" are articles used to indicate th
 
 
 ## Pages and features
-- Website has 1 pages which is a learning space for user to learn new artilces, get feedback about the choosed answers.
-###Features
+- Website has 1 pages which is a learning space for user to learn new artilces, get feedback about the choosed answers.<br>
+### Features
 __Navigation Bar__
 - Navigation bar has 3 elements. Name and 2 navigation links including Reset and Words' list. Reset lets user to reload the page and Words' List open a PDF file of all entered words with article an English meaning.  
 ![Nav Bar](https://github.com/strasse34/pp2/blob/main/assets/images/header.png)<br>
 ![PDF List](https://github.com/strasse34/pp2/blob/main/assets/images/words-list.png)<br>
-- Game Space
-- A word and its meaning, but without article, is being showed to the user. User should choose one of the Der, Die or Das buttons, which represents words' article, to gusse the correct answer. If user chooses the correct answer, article with green-color background apears beside showed word, otherwise correct article but with red-color background will be shown.<br>
-- There is another button under article buttons. It leads user to practice missed words. 
+__Game Space__
+- In this space a word and its meaning, but without article, is being showed to the user. User should choose one of the Der, Die or Das buttons, which represents words' article, to gusse the correct answer. If user chooses the correct answer, article with green-color background apears beside showed word, otherwise correct article but with red-color background will be shown. There is another button under article buttons that leads user to practice missed words.<br>
+- Game Space Screen Shot 
 ![Game Space](https://github.com/strasse34/pp2/blob/main/assets/images/game-space.png)<br>
-![Answer Space](https://github.com/strasse34/pp2/blob/main/assets/images/answer-space.png)<br>
-![Buttons](https://github.com/strasse34/pp2/blob/main/assets/images/buttons.png)<br>
+- System FeedBacks Screen Shots
 ![Correct Answer](https://github.com/strasse34/pp2/blob/main/assets/images/correct-answer.png)<br>
 ![Wrong Answer](https://github.com/strasse34/pp2/blob/main/assets/images/wrong-answer.png)<br>
+__Score Space__
+- In this part, usr receives statistics about his/her progress.
+![Score Space](https://github.com/strasse34/pp2/blob/main/assets/images/score-space.png)<br>
+__Review Space__
+- Sometimes user need to recheck the last answer. For this purpose in this part of the page, system shows the last set for more reviewing.
+![Review Space](https://github.com/strasse34/pp2/blob/main/assets/images/review-space.png)<br>
 
-
-
-- 
-   all five pages, the full responsive navigation bar includes links to the home page, apply page, supporter page, institute page and Log In page and is identical in each page to allow for easy navigation.
-  - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
-  - In the right side of navigation bar, the log in part with drop-down list help users to access to log in page. 
-![Nav Bar](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/navbar.png)
-- __The Home Page Banner__
-  - The home page banner shows an Afghan woman wearing the Burka hijab, which she was forced to wear by the Taliban, buying a few slices of bread. I used this image to show the current situation of Afghan women. Bread has deep meaning and respect in Afghan culture. One of the common words for bread is "Rozi" which means you earn money so that you can eat something. The woman in the picture represents Afghan women who worked, had jobs before, and could bring bread (Rozi) to their home. But it is different now.  
-  - There are logo and text on the home page image that make some questions in users' minds. 
-![Home Page](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/homepage-img.png)
-- __Statistics Section__
-  - This section provides some statistics about freelancers to catch more attention of users. 
-  
-![Statistics Section](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/statistics-section.png)
-- __Talib Section__
-  - This section includes one image and 2 headers and 2 short paragraphs. 
-  - The image clearly shows the current situation of girls and women in Afghanistan.  
-  - The text explains shortly the picture and comes up with a possible solution.  
-![Talib Section](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/talib-section.png)
-- __Video Section__
-  - This section includes a YouTube video from ITV News channel. 
-  - The video is a short report on the situation of Afghan women after the announcement of the ban on education and work by the Taliban.   
-![Vedio Section](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/video.png)
-
-- __Contact Section__ 
-  - This section includes map and footer.  
-  - The map shows the location of the Haami which is not real.
-  - The footer includes 3 parts. 1- logo and copyright text, 2- contact details and 3- social media.
-  - Email address and phone are clickable and take users to relevant apps.
-  - Social media icons are linked to their own pages. 
-![Contact](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/contact-section.png)
-### Features in Form Pages
-- __Banners__
-  - Each form page has specific banner which is relevant to the content. The name of the form is added at the bottom of each banner.   
-![Apply Page Banner](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/apply-banner.png)
-![Supporter Page Banner](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/supporter-banner.png)
-![Institute Page Banner](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/institute-banner.png)
-- __Forms__
-  - According to the required information, a specific form has been designed for each group of users.
-  - In addition to the information, each form provides sign up form for users to make their accounts. 
-- __Apply Form__
-![Apply Form](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/apply-form.png)
-- __Supporter Form__
-![Supporter Form](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/supporter-form.png)
-- __Institute Form__
-![Institute Form](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/institute-form.png)
-### Features in Log In Page
-  - It shows a girl who, although she is standing by the window of a dark house - the current situation in Afghanistan - but her heart is hopeful.
-  - The users who have accounts on the website can log in to their accounts through this page.
-![Log In Page](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/login-page.png) 
 ### Features Left to Implement
-- The website needs some more information pages. Every group of target users should lead to information pages and then directed to form pages. 
-- profile pages should be coded for each target group users. 
-- All the profiles should be integrated to each other.
-- payment facilities should be added to supporters' profile.
-- website should be integrated with institute partners' systems for data exchange.  
+- The app needs a feature to let users enter new sets of words and practice them.
+- The app needs to do the same thing with meaning of the words.
 ## Testing 
-
 - Lighthouse in Developer Tools <br>
 ![Lighthouse Scores](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/lighthouse.png) 
 - HTML Validator
