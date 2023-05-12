@@ -12,7 +12,7 @@ __Navigation Bar__
 ![Nav Bar](https://github.com/strasse34/pp2/blob/main/assets/images/header.png)<br>
 ![PDF List](https://github.com/strasse34/pp2/blob/main/assets/images/words-list.png)<br>
 __Game Space__
-- In this space a word and its meaning are being shown, but without an article, to the users. Users should choose one of the Der, Die, or Das buttons, which represents words' article, to give the correct answer. If users choose the correct answer, the article with a green-color background appears beside the word, otherwise correct article, but with red-color background, will be shown. There is another button under the article buttons that leads users to practice missed words.<br>
+- In this space a word and its meaning are being shown, but without an article, to the users. Users should choose one of the Der, Die, or Das buttons, which represents words' article, to give the correct answer. If users choose the correct answer, the article with a green-color background appears beside the word, otherwise correct article, but with red-color background, will be shown. There is another button under the article buttons that leads users to practice missed words.<br>
 - Game Space Screen Shot <br> 
 ![Game Space](https://github.com/strasse34/pp2/blob/main/assets/images/game-space.png)<br>
 - System FeedBacks Screen Shots <br>
@@ -29,39 +29,39 @@ __Features Left to Implement__
 - The app needs to do the same thing with the meaning of the words.
 ## Testing 
 __Lighthouse in Developer Tools__ <br>
-![Lighthouse Scores](https://github.com/strasse34/pp2/blob/main/assets/images/lighthouse.png) 
+![Lighthouse Scores](https://github.com/strasse34/pp2/blob/main/assets/images/lighthouse.png)<br> 
 __HTML Validator__
-  - 4 warnings were returned when passing through the official [W3C validator](https://validator.w3.org/). The warnings were about not using h1 headers in sections. It suggested to use h2 instead of h1, but I prefer to use h1 them. 
+  - 4 warnings were returned when passing through the official [W3C validator](https://validator.w3.org/). The warnings were about not using h1 headers in sections. It suggested to use h2 instead of h1, but I prefer to use h1 them.<br>
 __CSS Validator__
-  - No error were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/).
+  - No error were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/).<br>
 __jshint__
-  - I got the bellow returns when passing through the official [jshint] (https://jshint.com/) at the first check. I fixed all the warnings and undefined variables in the file and they disappeared.<br>
-    - There are 38 functions in this file.<br>
-    - Function with the largest signature take 0 arguments, while the median is 0.<br>
-    - Largest function has 12 statements in it, while the median is 7.5.<br>
-    - The most complex function has a cyclomatic complexity value of 3 while the median is 1.<br>
+  - I got the bellow returns when passing through the official [jshint] (https://jshint.com/) at the first check. I fixed all the warnings and undefined variables in the file and they disappeared.
+    - There are 38 functions in this file.
+    - Function with the largest signature take 0 arguments, while the median is 0.
+    - Largest function has 12 statements in it, while the median is 7.5.
+    - The most complex function has a cyclomatic complexity value of 3 while the median is 1.
 
-    - Two warnings<br>
-        - 18	Missing semicolon.<br>
-        - 261	Missing semicolon.<br>
-    - Three undefined variables<br>
-        - 36	i<br>
-        - 36	i<br>
-        - 36	i<br>
-        - 37	i<br>
-        - 48	i<br>
-        - 48	i<br>
-        - 48	i<br>
-        - 49	i<br>
-        - 125	question<br>
-        - 329	question<br>
-        - 239	isRed<br>
-        - 243	isRed<br>
-        - 253	isRed<br>
-        - 253	isRed<br>
+    - Two warnings
+        - 18	Missing semicolon.
+        - 261	Missing semicolon.
+    - Three undefined variables
+        - 36	i
+        - 36	i
+        - 36	i
+        - 37	i
+        - 48	i
+        - 48	i
+        - 48	i
+        - 49	i
+        - 125	question
+        - 329	question
+        - 239	isRed
+        - 243	isRed
+        - 253	isRed
+        - 253	isRed
      
 __Unfixed Bugs__
-No unfixed bugs are remained.  
+- No unfixed bugs are remained.  
 ## Deployment
 - The site was deployed to GitHub pages. The steps to deploy are as follows: 
   - In the GitHub repository, navigate to the Settings tab 
