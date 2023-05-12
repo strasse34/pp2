@@ -8,10 +8,22 @@ In the German language, "der," "die," and "das" are articles used to indicate th
 
 ## Pages and features
 - Website has 1 pages which is a learning space for user to learn new artilces, get feedback about the choosed answers.
-__Features__
-- Navigation Bar
+###Features
+__Navigation Bar__
 - Navigation bar has 3 elements. Name and 2 navigation links including Reset and Words' list. Reset lets user to reload the page and Words' List open a PDF file of all entered words with article an English meaning.  
-![Nav Bar](https://github.com/strasse34/pp2/blob/main/assets/images/header.png)
+![Nav Bar](https://github.com/strasse34/pp2/blob/main/assets/images/header.png)<br>
+![PDF List](https://github.com/strasse34/pp2/blob/main/assets/images/words-list.png)<br>
+- Game Space
+- A word and its meaning, but without article, is being showed to the user. User should choose one of the Der, Die or Das buttons, which represents words' article, to gusse the correct answer. If user chooses the correct answer, article with green-color background apears beside showed word, otherwise correct article but with red-color background will be shown.<br>
+- There is another button under article buttons. It leads user to practice missed words. 
+![Game Space](https://github.com/strasse34/pp2/blob/main/assets/images/game-space.png)<br>
+![Answer Space](https://github.com/strasse34/pp2/blob/main/assets/images/answer-space.png)<br>
+![Buttons](https://github.com/strasse34/pp2/blob/main/assets/images/buttons.png)<br>
+![Correct Answer](https://github.com/strasse34/pp2/blob/main/assets/images/correct-answer.png)<br>
+![Wrong Answer](https://github.com/strasse34/pp2/blob/main/assets/images/wrong-answer.png)<br>
+
+
+
 - 
    all five pages, the full responsive navigation bar includes links to the home page, apply page, supporter page, institute page and Log In page and is identical in each page to allow for easy navigation.
   - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
