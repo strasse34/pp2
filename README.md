@@ -3,21 +3,17 @@ i learnt this (#ent-der td:nth-child(1)) from chatGPT.
 # German Language Articles Flash Card
 In the German language, "der," "die," and "das" are articles used to indicate the gender of nouns. They correspond to the English articles "the," but unlike in English, German articles have different forms based on the gender of the noun they accompany. The gender of nouns in German is not always predictable based on their meaning, so it's best to learn the gender along with the noun itself. So this web-based app helps learners to learn the articles.      
 
-![Website in different screen sizes.](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/screenshot-responsive.png)
+![Website in different screen sizes.](https://github.com/strasse34/pp2/blob/main/assets/images/responsive%20design.png)
 
 
-## Pages
-- Website has 5 pages: home page, apply page, supporter page, institute page and log in page.
-- The home page tries to give general information about current situation of women in Afghanistan, logic of the website's job and contact details.
-- The website has 3 pages for 3 groups, which mentioned above, for applying, registering and information sharing. This pages provide forms for users for further steps.
-- The apply page is for the women who live in Afghanistan and want to get trained online and become a freelancer, but does not have financial resources. They can apply in this page and select the desired institute and field.
-- The institute page is a form too. The page is for educational institute to share their information for further cooperation.
-- The supporter page is a kind of form for supporters who want to cover training cost for applicants. 
-- The log in page leads users to their profiles.
-## Features
-### Features in Home page
-- __Navigation Bar__
-  - Featured on all five pages, the full responsive navigation bar includes links to the home page, apply page, supporter page, institute page and Log In page and is identical in each page to allow for easy navigation.
+## Pages and features
+- Website has 1 pages which is a learning space for user to learn new artilces, get feedback about the choosed answers.
+__Features__
+- Navigation Bar
+- Navigation bar has 3 elements. Name and 2 navigation links including Reset and Words' list. Reset lets user to reload the page and Words' List open a PDF file of all entered words with article an English meaning.  
+![Nav Bar](https://github.com/strasse34/pp2/blob/main/assets/images/header.png)
+- 
+   all five pages, the full responsive navigation bar includes links to the home page, apply page, supporter page, institute page and Log In page and is identical in each page to allow for easy navigation.
   - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
   - In the right side of navigation bar, the log in part with drop-down list help users to access to log in page. 
 ![Nav Bar](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/navbar.png)
