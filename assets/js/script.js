@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function(){
     word();
     meaning();
     getArticle();
-    ClicksOnButtonOff()
+    ClicksOnButtonOff();
     derClick();     
     dieClick();     
     dasClick(); 
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
 let currentRow= 0;
 let objectIndex = 0; 
 let articleList = [];    
-let wordList =[];
+let wordList = [];
 let meaningList = []; 
 let missedWordsArray = [];
 
@@ -21,7 +21,7 @@ let missedWordsArray = [];
 // getting words from html
 function word(){
     let findWord = document.querySelectorAll("#ent-words td:nth-child(2)");   
-    for (i = 0; i < findWord.length; i++){
+    for (let i = 0; i < findWord.length; i++){
     let word = findWord[i].textContent; 
     wordList.push(word);       
     }
@@ -33,7 +33,7 @@ function word(){
 // getting words' meaning from html
 function meaning(){ 
     let findMeaning = document.querySelectorAll("#ent-words td:nth-child(3)");   
-    for (i = 0; i < findMeaning.length; i++){
+    for (let i = 0; i < findMeaning.length; i++){
     let meaning = findMeaning[i].textContent;
     meaningList.push(meaning);
     }
@@ -105,6 +105,7 @@ function displayArticle(){
     let clickDie = document.getElementById('die');
     let clickDas = document.getElementById('das');   
     let articleElement = document.getElementById('article');
+  let question = document.getElementById('question');
     articleElement.textContent = articleList[currentRow]; 
     showLastSet();    
     setTimeout(function(){
@@ -224,7 +225,7 @@ function ClicksOnButtonOff(){
 // directing user to practice missed words by clikcing on proper button
 function goToMissedWords(){       
     let button = document.getElementById('practice-missed');
-    isRed = true;
+    let isRed = true;
     button.addEventListener('click' , function(){
         let totalMissed = parseInt(document.getElementById('t-missed').innerText);        
         if (totalMissed !== 0){            
@@ -246,7 +247,7 @@ function goToMissedWords(){
 } 
     
 
-goToMissedWords()
+goToMissedWords();
    
 // collecting the words and meaning which their article has been missed by user.  
 function makeMissedWordsArray(){
@@ -308,7 +309,8 @@ function displayMissedArticle(){
     let dieButton = document.getElementById('mdie');           
     let dasButton = document.getElementById('mdas');           
     let missedArticle = missedWordsArray[objectIndex].article;
-    let articleElement = document.getElementById('article');            
+    let articleElement = document.getElementById('article');
+  let question = document.getElementById('question');
     articleElement.innerText = missedArticle; 
     showLastSet(); 
     setTimeout(function(){
