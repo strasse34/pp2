@@ -219,13 +219,13 @@ section {
     }
 
     #last-words {  
-        font-size: 0.6rem;
+        font-size: 1rem;
         padding: 5px;
         letter-spacing: 3px;
     }
     
     #last-meaning {
-        font-size: 0.5rem;
+        font-size: 0.8rem;
         text-align: center;
         letter-spacing: 3px;
     }
@@ -283,7 +283,7 @@ section {
         list-style: none;
         display: inline-flex;
         padding: 10px;
-        font-size: small;
+        font-size: medium;
         padding: 10px;
         margin: 7px;
         }
@@ -324,19 +324,21 @@ section {
         font-size: 30px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri;
         font-weight: 800;
-        padding: 5px;
+        padding: 10px;
+        height: auto;
         
     }
     
     header li {
         list-style: none;
-        display: block;
-        text-align: center;        
         font-size: large;
         padding: 0;
     }
 
     header ul {
+        display: inline-flex;
+        justify-content: space-evenly;
+        gap: 50px;
         padding: 0;
     }
 }
@@ -347,13 +349,6 @@ section {
     display: none;        
     width: 100vw;
     justify-content: space-evenly;
-}
-
-#table {
-    display: block;        
-    width: 50vw;
-    margin-left: 100px;
-
 }
 
 .table {    
