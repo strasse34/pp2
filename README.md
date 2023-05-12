@@ -31,11 +31,11 @@ __Features Left to Implement__<br>
 __Lighthouse in Developer Tools__ <br>
 ![Lighthouse Scores](https://github.com/strasse34/pp2/blob/main/assets/images/lighthouse.png)<br> 
 __HTML Validator__<br>
-  4 warnings were returned when passing through the official [W3C validator](https://validator.w3.org/). The warnings were about not using h1 headers in sections. It suggested to use h2 instead of h1, but I prefer to use h1 them.<br>
+  4 warnings were returned when passing through the official [W3C validator](https://validator.w3.org/). The warnings were about not using h1 headers in sections. It suggested to use h2 instead of h1, but I prefer to use h1 them.<br><br>
 __CSS Validator__<br>
-  No error were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/).<br>
+  No error were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/).<br><br>
 __jshint__<br>
-  I got the bellow returns when passing through the official [jshint] (https://jshint.com/) at the first check. I fixed all the warnings and undefined variables in the file and they disappeared.<br>
+  I got the bellow returns when passing through the official [jshint] (https://jshint.com/) at the first check. I fixed all the warnings and undefined variables in the file and they disappeared.<br><br>
     - There are 38 functions in this file.
     - Function with the largest signature take 0 arguments, while the median is 0.
     - Largest function has 12 statements in it, while the median is 7.5.
@@ -70,6 +70,6 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:<br>
 The live link can be found here - (https://strasse34.github.io/pp2/)
 ## Credits 
 __Content__<br> 
-There is no special content in the page unless the words which I got them from my German Language books.<br>
+There is no special content in the page unless the words which I got them from my German Language books.<br><br>
 __Media__<br>
 I have not used any special media in my app.<br>
