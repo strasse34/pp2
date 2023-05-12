@@ -418,3 +418,4 @@ function showLastSet(){
     lastWord.innerText = question;
     lastMeaning.innerText = engMeaning;
 }
+
