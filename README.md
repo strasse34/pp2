@@ -1,9 +1,7 @@
 i learnt this (#ent-der td:nth-child(1)) from chatGPT.
 
-# Haami
-Haami is a Persian word that means "supporter". The website's vision is to provide opportunities for Afghanistan women to do online further education at home to become a freelancer and start working from home. <br>
-Haami is a website that tries to connect 3 groups of people. The first group is Afghanistan women who are not allowed to get educated and have jobs by the Taliban. The second group is supporters, those people around the world who want to help Afghanistan Women in this hard situation. And the third group is the institutes that provide online education. <br> 
-So online education centers can offer their courses and training on the website. At the same time, Afghanistan women can apply for the courses. Then supporters can select applicants among all the applicants and pay for the cost of the courses directly to the institutes. They can also track supported students' progress.      
+# German Language Articles Flash Card
+In the German language, "der," "die," and "das" are articles used to indicate the gender of nouns. They correspond to the English articles "the," but unlike in English, German articles have different forms based on the gender of the noun they accompany. The gender of nouns in German is not always predictable based on their meaning, so it's best to learn the gender along with the noun itself. So this web-based app helps learners to learn the articles.      
 
 ![Website in different screen sizes.](https://github.com/strasse34/first-project/blob/main/assets/images/screenshots/screenshot-responsive.png)
 
