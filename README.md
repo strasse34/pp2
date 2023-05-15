@@ -71,6 +71,6 @@ The live link can be found here - (https://strasse34.github.io/pp2/)
 ## Credits 
 __Content__<br> 
 - The codes are original and I did not use any code from other webpages. But I learned many things from internet.
-- There is no special content in the page unless the words which I got them from my German Language books.
+- There is no special content in the page unless the words which I got them from my German Language books.<br>
 __Media__<br>
 I have not used any special media in my app.<br>
