@@ -36,7 +36,7 @@ __CSS Validator__<br>
   No error were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/).<br><br>
 __jshint__<br>
   I got the bellow returns when passing through the official [jshint] (https://jshint.com/) at the first check. I fixed all the warnings and undefined variables in the file and they disappeared.<br><br>
-- There are 38 functions in this file.
+- There are 40 functions in this file.
 - Function with the largest signature take 0 arguments, while the median is 0.
 - Largest function has 12 statements in it, while the median is 7.5.
 - The most complex function has a cyclomatic complexity value of 3 while the median is 1.

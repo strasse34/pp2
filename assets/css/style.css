@@ -10,7 +10,6 @@ header {
     font-weight: 800;
     padding-right: 50px;
     padding-left: 50px;
-    
 }
 
 header li {
@@ -171,6 +170,7 @@ section {
     align-items: center;
     height: auto;
 }
+
 #review-space h1 {
     font-size: 1.6rem;
 }
@@ -242,11 +242,12 @@ section {
         align-items: center;
         height: auto;
         padding-bottom: 10px;
-        
     }
+
      #game-space h1 {
         font-size: 1.2rem;
      }
+
      #answer-space {         
         width: 30vw;
         display: flex;
@@ -265,7 +266,6 @@ section {
         width: 100px;    
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        
     }
 
      #eng-meaning {    
@@ -331,7 +331,6 @@ section {
         font-weight: 800;
         padding: 10px;
         height: auto;
-        
     }
     
     header li {
@@ -375,6 +374,5 @@ section {
     #table {
     display: block;        
     width: 50vw;
-   
 }
 }

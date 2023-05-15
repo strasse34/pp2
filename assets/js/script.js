@@ -66,7 +66,6 @@ function incrementGreen(){
 function incrementRed(){
     let redBox = parseInt(document.getElementById('t-missed').textContent);
     document.getElementById('t-missed').innerText = ++redBox;
-    
 }
 
 function remainCal(){
@@ -76,8 +75,6 @@ function remainCal(){
 
     let remainWords = document.getElementById('t-remain');
     remainWords.innerText = (parseInt(c) - (parseInt(a) + parseInt(b)));
-
-    
 }
 
 // showing next word and meaning after each user feedback
@@ -148,8 +145,8 @@ function derClick(){
             incrementRed();
             displayArticle();            
             makeMissedWordsArray(); 
-            console.log(missedWordsArray);                         
-            }       
+            } 
+        console.log(missedWordsArray);      
     });       
 }
 
@@ -167,8 +164,8 @@ function dieClick(){
             incrementRed();
             displayArticle();
             makeMissedWordsArray();
-            console.log(missedWordsArray);                           
-            }        
+            } 
+        console.log(missedWordsArray);      
     });    
 }
 
@@ -185,9 +182,9 @@ function dasClick(){
             } else { articleElement.style.backgroundColor = 'red';            
             incrementRed();
             displayArticle();
-            makeMissedWordsArray();
-            console.log(missedWordsArray);                           
-            }         
+            makeMissedWordsArray();         
+            }
+        console.log(missedWordsArray);         
     });    
 }
 
@@ -231,8 +228,8 @@ function goToMissedWords(){
         if (totalMissed !== 0){            
             if(isRed){        
                 button.style.backgroundColor = 'red';
-                clicksOffButtonOn();
-                practiceMissedWords();          
+                clicksOffButtonOn();                 
+                displayMissedWord();
             } else {
                 button.style.backgroundColor = 'aliceblue';
                 ClicksOnButtonOff();
@@ -241,7 +238,7 @@ function goToMissedWords(){
             }
             isRed = !isRed;
         } else {
-            alert("You Have No Missed Words!");
+            alert("You have no missed words!");
         }   
     });
 } 
@@ -266,14 +263,11 @@ function makeMissedWordsArray(){
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-// PRACTICING MISSED WORKDS
-function practiceMissedWords(){
-    displayMissedWord();              
-    derButton();    
-    dieButton();    
-    dasButton();    
-}
-
+// PRACTICING MISSED WORKDS Mode
+         
+derButton();    
+dieButton();    
+dasButton();    
 
 // score space calculation
 function greenPlus(){
@@ -294,10 +288,11 @@ function nextMissedPair(){
     objectIndex++;
     displayMissedWord();
     } else {
-        alert('Good Job! There is no missed words left');
+        alert('Good Job! There is no missed words left.');
         button.style.backgroundColor = 'aliceblue';
         ClicksOnButtonOff();
         currentRow--;
+        objectIndex++;
         nextPair();    
     }     
 }  
@@ -310,9 +305,10 @@ function displayMissedArticle(){
     let dasButton = document.getElementById('mdas');           
     let missedArticle = missedWordsArray[objectIndex].article;
     let articleElement = document.getElementById('article');
-  let question = document.getElementById('question');
+    let question = document.getElementById('question');
     articleElement.innerText = missedArticle; 
-    showLastSet(); 
+    showLastSet();
+    
     setTimeout(function(){
         articleElement.textContent = '';
         articleElement.style.backgroundColor = '';
@@ -320,8 +316,29 @@ function displayMissedArticle(){
         derButton.disabled = false;
         dieButton.disabled = false;
         dasButton.disabled = false;
-        button.disabled = false;
+        button.disabled = false; 
         nextMissedPair(); }, 2000);                                               
+    } 
+
+// not displaying next pair while user click incorrect
+function repeatSameObject(){
+    let button = document.getElementById('practice-missed');
+    let derButton = document.getElementById('mder');           
+    let dieButton = document.getElementById('mdie');           
+    let dasButton = document.getElementById('mdas');           
+    let missedArticle = missedWordsArray[objectIndex].article;
+    let articleElement = document.getElementById('article');
+  let question = document.getElementById('question');
+    articleElement.innerText = missedArticle; 
+    showLastSet();
+    setTimeout(function(){
+        articleElement.textContent = '';
+        articleElement.style.backgroundColor = '';
+        question.style.backgroundColor = '';
+        derButton.disabled = false;
+        dieButton.disabled = false;
+        dasButton.disabled = false;
+        button.disabled = false; }, 2000);                                               
     } 
 
 // disabling event listening of clicks on buttons to prevent unexpected click
@@ -336,6 +353,19 @@ function buttonsDisabled(){
     button.disabled = true;
 }
 
+// finding Current Object in missed words practice mode
+function removeCurrentObject() {
+    let currentArticle = missedWordsArray[objectIndex].article;
+    let currentWord = missedWordsArray[objectIndex].word;
+    let currentMeaning = missedWordsArray[objectIndex].meaning;
+    let targetIndex = objectIndex - 1;
+    missedWordsArray.splice(targetIndex, 1, {        
+        article: currentArticle,
+        word: currentWord,
+        meaning: currentMeaning,
+    });
+}
+
 // defining button der, die and das in missed words 
 function derButton(){
     let derButton = document.getElementById('mder');
@@ -344,17 +374,17 @@ function derButton(){
         buttonsDisabled();
         let missedArticle = missedWordsArray[objectIndex].article;
         if (missedArticle === 'Der'){
-        articleElement.style.backgroundColor = 'green';
-        redMinus();
-        greenPlus();
-        displayMissedArticle();                                    
-        } else {
-            articleElement.style.backgroundColor = 'red';
-            displayMissedArticle();   
-            makeMissedWordsArray(); 
-        }                                                                                 
+            articleElement.style.backgroundColor = 'green';
+            redMinus();
+            greenPlus();
+            displayMissedArticle();
+            } else {
+                articleElement.style.backgroundColor = 'red';
+                repeatSameObject();
+                console.log(missedWordsArray);
+            } 
+        console.log(missedWordsArray);                                                                                
     });
-    console.log(missedWordsArray);    
 }
 
 function dieButton(){ 
@@ -364,47 +394,46 @@ function dieButton(){
         buttonsDisabled();
         let missedArticle = missedWordsArray[objectIndex].article;            
         if (missedArticle === 'Die'){
-        articleElement.style.backgroundColor = 'green';
-        redMinus();
-        greenPlus(); 
-        displayMissedArticle();                       
-        } else {
-            articleElement.style.backgroundColor = 'red';
+            articleElement.style.backgroundColor = 'green';
+            redMinus();
+            greenPlus();
             displayMissedArticle();
-            makeMissedWordsArray(); 
-        }                                                                 
+            } else {
+                articleElement.style.backgroundColor = 'red';
+                repeatSameObject();
+                 
+            }
+        console.log(missedWordsArray);                                                                 
     }); 
-    console.log(missedWordsArray);   
 }
+
 function dasButton(){
-               
     let dasButton = document.getElementById('mdas'); 
     let articleElement = document.getElementById('article');                           
     dasButton.addEventListener('click', function(){
         buttonsDisabled();
         let missedArticle = missedWordsArray[objectIndex].article;           
         if (missedArticle === 'Das'){
-        articleElement.style.backgroundColor = 'green';
-        redMinus();
-        greenPlus(); 
-        displayMissedArticle();                       
-        } else {
-            articleElement.style.backgroundColor = 'red';
-            displayMissedArticle(); 
-            makeMissedWordsArray(); 
-        }                                                                
+            articleElement.style.backgroundColor = 'green';
+            redMinus();
+            greenPlus(); 
+            displayMissedArticle();
+            } else {
+                articleElement.style.backgroundColor = 'red';
+                repeatSameObject();
+            }
+        console.log(missedWordsArray);                                                                
     });
-    console.log(missedWordsArray);    
 }
 
 // Function to display the missed word at the current index
 function displayMissedWord() {     
-    let missedWord = missedWordsArray[objectIndex].word;
-    let missedMeaning = missedWordsArray[objectIndex].meaning;
-    let questionElement = document.getElementById('question');
-    let engMeaningElement = document.getElementById('eng-meaning');            
-    questionElement.innerText = missedWord;
-    engMeaningElement.innerText = missedMeaning;
+        let missedWord = missedWordsArray[objectIndex].word;
+        let missedMeaning = missedWordsArray[objectIndex].meaning;
+        let questionElement = document.getElementById('question');
+        let engMeaningElement = document.getElementById('eng-meaning');            
+        questionElement.innerText = missedWord;
+        engMeaningElement.innerText = missedMeaning;
 }
 
 // getting words' set and show in the review space
@@ -420,4 +449,3 @@ function showLastSet(){
     lastWord.innerText = question;
     lastMeaning.innerText = engMeaning;
 }
-
