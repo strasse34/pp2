@@ -89,7 +89,7 @@ function nextPair(){
         if(totalMissed > 0){
             alert('There is no new words to practice. Please practice Missed Words!');
         } else { 
-            alert('Congratulation!! You have learned ' + greenBox + ' words.');
+            alert('Congratulations!! You have learned ' + greenBox + ' words.');
             location.reload();
         }
     }       

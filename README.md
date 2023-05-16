@@ -32,6 +32,7 @@ __Lighthouse in Developer Tools__ <br>
 ![Lighthouse Scores](https://github.com/strasse34/pp2/blob/main/assets/images/lighthouse.png)<br> 
 __HTML Validator__<br>
   4 warnings were returned when passing through the official [W3C validator](https://validator.w3.org/). The warnings were about not using h1 headers in sections. It suggested to use h2 instead of h1, but I preferred to use h1.<br><br>
+  ![Warnings](https://github.com/strasse34/pp2/blob/main/assets/images/html-validation.png)<br>
 __CSS Validator__<br>
   No error were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/).<br><br>
 __jshint__<br>
