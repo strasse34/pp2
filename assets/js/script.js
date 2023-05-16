@@ -145,10 +145,9 @@ function derClick(){
             incrementRed();
             displayArticle();            
             makeMissedWordsArray(); 
-            } 
-        console.log(missedWordsArray);      
-    });       
-}
+            }       
+        });       
+    }
 
 function dieClick(){     
     let articleElement = document.getElementById('article');        
@@ -164,10 +163,9 @@ function dieClick(){
             incrementRed();
             displayArticle();
             makeMissedWordsArray();
-            } 
-        console.log(missedWordsArray);      
-    });    
-}
+            }       
+        });    
+    }
 
 function dasClick(){     
     let articleElement = document.getElementById('article');        
@@ -183,10 +181,9 @@ function dasClick(){
             incrementRed();
             displayArticle();
             makeMissedWordsArray();         
-            }
-        console.log(missedWordsArray);         
-    });    
-}
+            }       
+        });    
+    }
 
 // switching between two sets of buttons during normal practice and missedWordPractice
 function clicksOffButtonOn(){
@@ -376,11 +373,9 @@ function derButton(){
             } else {
                 articleElement.style.backgroundColor = 'red';
                 repeatSameObject();
-                console.log(missedWordsArray);
-            } 
-        console.log(missedWordsArray);                                                                                
-    });
-}
+            }                                                                                
+        });
+    }
 
 function dieButton(){ 
     let dieButton = document.getElementById('mdie'); 
@@ -396,11 +391,9 @@ function dieButton(){
             } else {
                 articleElement.style.backgroundColor = 'red';
                 repeatSameObject();
-                 
-            }
-        console.log(missedWordsArray);                                                                 
-    }); 
-}
+            }                                                                 
+        }); 
+    }
 
 function dasButton(){
     let dasButton = document.getElementById('mdas'); 
@@ -416,20 +409,19 @@ function dasButton(){
             } else {
                 articleElement.style.backgroundColor = 'red';
                 repeatSameObject();
-            }
-        console.log(missedWordsArray);                                                                
-    });
-}
+            }                                                                
+        });
+    }
 
 // Function to display the missed word at the current index
 function displayMissedWord() {     
-        let missedWord = missedWordsArray[objectIndex].word;
-        let missedMeaning = missedWordsArray[objectIndex].meaning;
-        let questionElement = document.getElementById('question');
-        let engMeaningElement = document.getElementById('eng-meaning');            
-        questionElement.innerText = missedWord;
-        engMeaningElement.innerText = missedMeaning;
-}
+    let missedWord = missedWordsArray[objectIndex].word;
+    let missedMeaning = missedWordsArray[objectIndex].meaning;
+    let questionElement = document.getElementById('question');
+    let engMeaningElement = document.getElementById('eng-meaning');            
+    questionElement.innerText = missedWord;
+    engMeaningElement.innerText = missedMeaning;
+    }
 
 // getting words' set and show in the review space
 function showLastSet(){
@@ -443,4 +435,4 @@ function showLastSet(){
     lastArticle.innerText = article;
     lastWord.innerText = question;
     lastMeaning.innerText = engMeaning;
-}
+    }

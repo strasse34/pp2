@@ -143,6 +143,10 @@ section {
     flex-direction: row;
 }
 
+#table-page {
+    display: none;
+}
+
 /* responsive design */
 /* screen smaller than 1150 px */
 @media (max-width: 1150px) {
@@ -347,32 +351,3 @@ section {
     }
 }
 
-/* ========================================================================= */
-/* list.html */
-#table-page {
-    display: none;        
-    width: 100vw;
-    justify-content: space-evenly;
-}
-
-.table {    
-    display: block;
-    margin: 0 auto;
-    font-size: 1rem;   
-    text-align: left;   
-}
-
-.table th {
-    padding-right: 10px;
-    border-bottom: 1px solid rgb(50, 50, 50);
-}
-.table td {
-    padding-right: 10px;
-}
-
-@media (max-width: 420px){
-    #table {
-    display: block;        
-    width: 50vw;
-}
-}
