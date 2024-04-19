@@ -1,7 +1,8 @@
 # German Language Articles Flash Card
 In the German language, "der," "die," and "das" are articles used to indicate the gender of nouns. They correspond to the English articles "the," but unlike in English, German articles have different forms based on the gender of the noun they accompany. The gender of nouns in German is not always predictable based on their meaning, so it's best to learn the gender along with the noun itself. So this web-based app helps adult German language learners to learn the articles. Children may use this educational app too, but it would be a little boring because there are no Childish colorful elements in the app.       
 
-![Website in different screen sizes.](https://github.com/strasse34/pp2/blob/main/assets/images/responsive%20design.png)
+![Website in different screen sizes.](assets/images/responsive-design.png)
+[See Live project](https://strasse34.github.io/pp2/)
 
 
 ## Pages and features
@@ -9,27 +10,28 @@ The website has 1 page which provides a learning space for users to learn new ar
 ### Features
 __Navigation Bar__<br>
 The navigation bar has 3 elements. The website title and 2 navigation links: Reset and Words' list. Reset-link lets the user reload the page and Words' List-link opens a PDF file that contains all words with their article and English meaning.  
-![Nav Bar](https://github.com/strasse34/pp2/blob/main/assets/images/header.png)<br>
-![PDF List](https://github.com/strasse34/pp2/blob/main/assets/images/words-list.png)<br>
+![Nav Bar](assets/images/header.png)<br>
+![PDF List](assets/images/words-list.png)<br>
 __Game Space__<br>
 In this space a word and its meaning are being shown, but without an article, to the users. Users should choose one of the Der, Die, or Das buttons, which represents words' article, to give the correct answer. If users choose the correct answer, the article with a green-color background appears beside the word, otherwise correct article, but with red-color background, will be shown. There is another button under the article buttons that leads users to practice missed words.<br>
 Game Space Screen Shot <br> 
-![Game Space](https://github.com/strasse34/pp2/blob/main/assets/images/game-space.png)<br>
+![Game Space](assets/images/game-space.png)<br>
 System FeedBacks Screen Shots <br>
-![Correct Answer](https://github.com/strasse34/pp2/blob/main/assets/images/correct-answer.png) ![Wrong Answer](https://github.com/strasse34/pp2/blob/main/assets/images/wrong-answer.png)<br>
+![Correct Answer](assets/images/correct-answer.png) 
+![Wrong Answer](assets/images/wrong-answer.png)<br>
 
 __Score Space__<br>
 In this part, users receive statistics about their progress after each try. <br>
-![Score Space](https://github.com/strasse34/pp2/blob/main/assets/images/score-space.png)<br>
+![Score Space](assets/images/score-space.png)<br>
 __Review Space__<br>
 Sometimes users need to recheck the last answer. For this purpose in this part of the page, the system shows the last delivered set for more reviewing.<br>
-![Review Space](https://github.com/strasse34/pp2/blob/main/assets/images/review-space.png)<br>
+![Review Space](assets/images/review-space.png)<br>
 __Features Left to Implement__<br>
 - The app needs a feature to let users enter new sets of words and practice them.
 - The app needs to do the same thing with the meaning of the words.
 ## Testing 
 __Lighthouse in Developer Tools__ <br>
-![Lighthouse Scores](https://github.com/strasse34/pp2/blob/main/assets/images/lighthouse.png)<br> 
+![Lighthouse Scores](assets/images/lighthouse.png)<br> 
 __HTML Validator__<br>
   4 warnings were returned when passing through the official [W3C validator](https://validator.w3.org/). The warnings were about not using h1 headers in sections. It suggested to use h2 instead of h1, but I preferred to use h1.<br><br>
   ![Warnings](https://github.com/strasse34/pp2/blob/main/assets/images/html-validation.png)<br>
@@ -69,7 +71,7 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:<br>
   - In the GitHub repository, navigate to the Settings tab 
   - In the "Code and automation" section of the sidebar, click Pages
   - Under Github Pages, click on button "Visit Site".
-The live link can be found here - (https://strasse34.github.io/pp2/)
+The live link can be found [here](https://strasse34.github.io/pp2/)
 ## Credits 
 __Content__<br> 
 - The codes are original and I did not use any code from other webpages. But I learned many things from the internet that I used during development.
